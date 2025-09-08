@@ -6,7 +6,7 @@ import viteLogo from '/vite.svg';
 
 const Remote = lazy(
   // @ts-ignore
-  async () => import('remote/remote-app')
+  async () => import('remote/fiap-farm-mfe')
 );
 
 function App() {
@@ -27,8 +27,8 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
       </div>
       <Suspense fallback="loading...">
-				<Remote />
-			</Suspense>
+        <Remote />
+      </Suspense>
     </>
   );
 }
