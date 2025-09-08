@@ -6,7 +6,6 @@ import { dependencies } from './package.json';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
   return {
-    server: { fs: { allow: ['.', '../shared'] } },
     build: { target: 'chrome89' },
     plugins: [
       federation({
