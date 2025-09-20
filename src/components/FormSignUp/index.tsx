@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { useFormSignUp } from '@/hooks';
 import { cn } from '@/lib/utils';
 import { LoaderCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function FormSignUp({ className, ...props }: React.ComponentProps<'div'>) {
   const {
@@ -78,9 +79,9 @@ export function FormSignUp({ className, ...props }: React.ComponentProps<'div'>)
 
             <div className='mt-4 text-center text-sm'>
               Já tem uma conta?{' '}
-              <a href='/login' className='underline underline-offset-4'>
+              <Link to='/login' className='underline underline-offset-4'>
                 Entre
-              </a>
+              </Link>
             </div>
           </form>
         </CardContent>

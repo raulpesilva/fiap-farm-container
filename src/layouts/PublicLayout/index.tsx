@@ -1,9 +1,8 @@
 import { Footer, Logo } from '@/components';
 import { Button } from '@/components/ui/button';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 
 export const PublicLayout = () => {
-  const navigate = useNavigate();
   const location = useLocation();
   const isLogin = location.pathname === '/login';
   const isRegister = location.pathname === '/cadastro';
@@ -16,18 +15,14 @@ export const PublicLayout = () => {
 
           <div className='flex gap-4'>
             {!isLogin && (
-              <Button onClick={() => navigate('/login')} className='cursor-pointer duration-300 font-medium text-base'>
-                Entrar
+              <Button className='cursor-pointer duration-300 font-medium text-base' asChild>
+                <Link to='/login'>Entrar</Link>
               </Button>
             )}
 
             {!isRegister && (
-              <Button
-                onClick={() => navigate('/cadastro')}
-                className='cursor-pointer duration-300 font-medium text-base'
-                variant='outline'
-              >
-                Criar conta
+              <Button className='cursor-pointer duration-300 font-medium text-base' variant='outline' asChild>
+                <Link to='/cadastro'>Criar conta</Link>
               </Button>
             )}
           </div>

@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { useFormSignIn } from '@/hooks';
 import { cn } from '@/lib/utils';
 import { LoaderCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function FormSignIn({ className, ...props }: React.ComponentProps<'div'>) {
   const { email, password, error, loading, setEmail, setPassword, handleLogin, onChange } = useFormSignIn();
@@ -56,9 +57,9 @@ export function FormSignIn({ className, ...props }: React.ComponentProps<'div'>)
 
             <div className='mt-4 text-center text-sm'>
               Não tem uma conta?{' '}
-              <a href='/cadastro' className='underline underline-offset-4'>
+              <Link to='/cadastro' className='underline underline-offset-4'>
                 Cadastre-se
-              </a>
+              </Link>
             </div>
           </form>
         </CardContent>
