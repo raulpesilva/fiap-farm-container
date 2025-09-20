@@ -1,6 +1,18 @@
 import { Route, Routes } from 'react-router-dom';
 import { AddFarmLayout, AppLayout, PublicLayout } from '../layouts';
-import { AddFarm, Goals, Home, Login, NotFound, Products, Register, Sales, Stocks } from '../pages';
+import {
+  Account,
+  AddFarm,
+  Goals,
+  Home,
+  Login,
+  NotFound,
+  Notifications,
+  Products,
+  Register,
+  Sales,
+  Stocks,
+} from '../pages';
 import { useHasFarmSelect, useIsAuthenticatedSelect } from '../states';
 
 export const AppRoutes = () => {
@@ -34,6 +46,8 @@ export const AppRoutes = () => {
           <Route path='/vendas' element={<Sales />} />
           <Route path='/metas' element={<Goals />} />
           <Route path='/produtos' element={<Products />} />
+          <Route path='/notificacoes' element={<Notifications />} />
+          <Route path='/minha-conta' element={<Account />} />
           <Route path='*' element={<NotFound />} />
         </Route>
       )}
