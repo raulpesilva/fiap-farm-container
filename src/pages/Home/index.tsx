@@ -1,10 +1,14 @@
+import BannerIcon from '../../assets/icons/farm-un-draw.svg';
+
 export const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
+    <section className='w-full max-w-[1232px] h-full flex items-center justify-center gap-20 px-4 mx-auto'>
+      <h1 className='text-2xl font-medium text-primary-foreground text-center'>
+        Simplifique a gestão da sua fazenda com tecnologia. <br /> Organize seus estoques, vendas e colheitas em um só
+        lugar!
+      </h1>
 
-      <a href='/login'>Login</a>
-      <a href='/cadastro'>Register</a>
-    </div>
+      <img src={BannerIcon} alt='Banner' className='w-1/2 max-w-96' />
+    </section>
   );
 };
