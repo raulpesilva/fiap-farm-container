@@ -8,7 +8,7 @@ export const Home = () => {
         lugar!
       </h1>
 
-      <img src={BannerIcon} alt='Banner' className='w-1/2 max-w-96' />
+      <img src={BannerIcon} alt='Banner' className='w-1/2 max-w-[448px]' />
     </section>
   );
 };
