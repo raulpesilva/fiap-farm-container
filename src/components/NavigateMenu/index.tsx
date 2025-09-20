@@ -4,19 +4,12 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from '@/components/ui/navigation-menu';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface MenuItemProps {
   name: string;
   link: string;
 }
-
-const NAVIGATION_ITEMS = [
-  { name: 'Estoques', link: '/estoques' },
-  { name: 'Vendas', link: '/vendas' },
-  { name: 'Metas', link: '/metas' },
-  { name: 'Produtos', link: '/produtos' },
-];
 
 const MenuItem = ({ name, link }: MenuItemProps) => {
   const { pathname } = useLocation();
@@ -26,12 +19,12 @@ const MenuItem = ({ name, link }: MenuItemProps) => {
   return (
     <NavigationMenuItem>
       <NavigationMenuLink
-        href={link}
         className={`uppercase font-medium text-primary-foreground ${
           formattedPathname.includes(formattedName) ? 'text-primary hover:text-primary' : ''
         }`}
+        asChild
       >
-        {name}
+        <Link to={link}>{name}</Link>
       </NavigationMenuLink>
     </NavigationMenuItem>
   );
@@ -41,9 +34,10 @@ export const NavigateMenu = () => {
   return (
     <NavigationMenu>
       <NavigationMenuList>
-        {NAVIGATION_ITEMS?.map((item) => (
-          <MenuItem key={item.name} name={item.name} link={item.link} />
-        ))}
+        <MenuItem name='Estoques' link='/estoques' />
+        <MenuItem name='Vendas' link='/vendas' />
+        <MenuItem name='Metas' link='/metas' />
+        <MenuItem name='Produtos' link='/produtos' />
       </NavigationMenuList>
     </NavigationMenu>
   );

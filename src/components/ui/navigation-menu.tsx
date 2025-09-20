@@ -1,7 +1,7 @@
-import * as React from "react"
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
 import { cva } from "class-variance-authority"
 import { ChevronDownIcon } from "lucide-react"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -53,6 +53,7 @@ function NavigationMenuItem({
     <NavigationMenuPrimitive.Item
       data-slot="navigation-menu-item"
       className={cn("relative", className)}
+      
       {...props}
     />
   )
@@ -156,13 +157,6 @@ function NavigationMenuIndicator({
 }
 
 export {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuContent,
-  NavigationMenuTrigger,
-  NavigationMenuLink,
-  NavigationMenuIndicator,
-  NavigationMenuViewport,
-  navigationMenuTriggerStyle,
+  NavigationMenu, NavigationMenuContent, NavigationMenuIndicator, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle, NavigationMenuViewport
 }
+
