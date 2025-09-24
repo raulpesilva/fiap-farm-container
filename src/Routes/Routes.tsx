@@ -42,7 +42,7 @@ export const AppRoutes = () => {
       {/* Usuário logado com fazenda */}
       {isAuthenticated && hasFarm && (
         <Route element={<AppLayout />}>
-          <Route path='/estoques' element={<Stocks />} />
+          <Route path='/' element={<Stocks />} />
           <Route path='/vendas' element={<Sales />} />
           <Route path='/metas' element={<Goals />} />
           <Route path='/produtos' element={<Products />} />

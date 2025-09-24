@@ -1,4 +1,5 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Remote = lazy(
   // @ts-expect-error mfe
@@ -14,6 +15,14 @@ const Fallback = () => {
 };
 
 export const AddFarm = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handler = () => navigate('/');
+    window.addEventListener('goStocks', handler);
+    return () => window.removeEventListener('goStocks', handler);
+  }, [navigate]);
+
   return (
     <Suspense fallback={<Fallback />}>
       <Remote />
