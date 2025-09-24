@@ -34,7 +34,7 @@ export const NavigateMenu = () => {
   return (
     <NavigationMenu>
       <NavigationMenuList>
-        <MenuItem name='Estoques' link='/estoques' />
+        <MenuItem name='Estoques' link='/' />
         <MenuItem name='Vendas' link='/vendas' />
         <MenuItem name='Metas' link='/metas' />
         <MenuItem name='Produtos' link='/produtos' />

@@ -1,4 +1,4 @@
-import { useHasFarmSelect, useIsAuthenticatedSelect } from '@/states';
+import { useHasFarmSelect } from '@/states';
 import { Link } from 'react-router-dom';
 import LogoIcon from '../../assets/icons/logo.svg';
 
@@ -7,10 +7,9 @@ interface LogoProps {
 }
 
 export const Logo = ({ width }: LogoProps) => {
-  const isAuthenticated = useIsAuthenticatedSelect();
   const hasFarm = useHasFarmSelect();
 
-  const link = !isAuthenticated ? '/' : hasFarm ? '/estoques' : '/cadastro-fazenda';
+  const link = !hasFarm ? '/cadastro-fazenda' : '/';
 
   return (
     <Link

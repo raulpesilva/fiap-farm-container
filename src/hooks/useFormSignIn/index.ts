@@ -17,7 +17,7 @@ export const useFormSignIn = () => {
       // const user = await signInWithEmailAndPassword(auth, email, password);
       // if (user) dispatchIsAuthenticated(true);
       dispatchIsAuthenticated(true);
-      navigate(hasFarm ? '/estoques' : '/cadastro-fazenda');
+      navigate(!hasFarm ? '/cadastro-fazenda' : '/');
     } catch (error: any) {
       console.log('Error signing in with email and password:', error);
       if (error.message.includes('auth/invalid-email')) return setError('E-mail inválido');
