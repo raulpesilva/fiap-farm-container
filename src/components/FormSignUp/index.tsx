@@ -27,7 +27,6 @@ const useFormSignUp = () => {
       if (error.message.includes('auth/weak-password')) return setError('A senha deve ter pelo menos 6 caracteres');
       if (error.message.includes('auth/email-already-in-use')) return setError('E-mail já cadastrado');
       setError('Sign in failed: ' + error.message);
-    } finally {
       setLoading(false);
     }
   };

@@ -30,7 +30,6 @@ const useFormSignIn = () => {
       if (error.message.includes('auth/wrong-password')) return setError('Senha incorreta');
       if (error.message.includes('auth/user-not-found')) return setError('Usuário não encontrado');
       setError('Sign in failed: ' + error.message);
-    } finally {
       setLoading(false);
     }
   };
