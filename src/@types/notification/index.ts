@@ -1,4 +1,4 @@
-import { Transaction } from "../transactions";
+import type { Transaction } from '../transactions';
 
 export interface NotificationItem {
   id: number;

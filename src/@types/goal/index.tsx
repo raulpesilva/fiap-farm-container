@@ -17,7 +17,6 @@ export interface GoalItem {
   updated_at: string; // ISO date string
 }
 
-
 export const MEASURE_GOAL: Record<GoalItem['measure'], string> = {
   quantity: 'Quantidade',
   price: 'Valor',

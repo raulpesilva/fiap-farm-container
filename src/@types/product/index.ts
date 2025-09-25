@@ -1,5 +1,3 @@
-import { ICON_MAP, OptionSelect } from '@/components';
-
 export interface ProductItem {
   id: number;
   farm_id: number;
@@ -9,6 +7,19 @@ export interface ProductItem {
   created_at: string;
   updated_at: string;
 }
+
+export const ICON_MAP = {
+  apple: '../../assets/icons/apple.svg',
+  banana: '../../assets/icons/banana.svg',
+  carrot: '../../assets/icons/carrot.svg',
+  cherry: '../../assets/icons/cherry.svg',
+  citrus: '../../assets/icons/citrus.svg',
+  grape: '../../assets/icons/grape.svg',
+  leafy: '../../assets/icons/leafy.svg',
+  logo: '../../assets/icons/logo.svg',
+  sprout: '../../assets/icons/sprout.svg',
+  vegan: '../../assets/icons/vegan.svg',
+};
 
 export const COLOR_MAP: Record<string, string> = {
   red: '#FF6467',
@@ -25,6 +36,13 @@ export const getColorByName = (name: string) => {
   if (name?.startsWith('#') || typeof name !== 'string') return name;
   return COLOR_MAP[name] || COLOR_MAP['red'];
 };
+
+export interface OptionSelect {
+  displayName: string;
+  type?: string;
+  icon?: keyof typeof ICON_MAP;
+  color?: string;
+}
 
 export const COLORS_PRODUCT: OptionSelect[] = [
   { displayName: 'Vermelho', type: 'red', color: COLOR_MAP['red'] },
