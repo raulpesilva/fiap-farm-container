@@ -1,17 +1,16 @@
 import { Button } from '@/components/ui/button';
-import { useHasFarmSelect } from '@/states';
+import { useFarmSelect } from '@/states';
 import { Link } from 'react-router-dom';
 import NotFoundIcon from '../../assets/icons/not-found-un-draw.svg';
 
 export const NotFound = () => {
-  const hasFarm = useHasFarmSelect();
-
-  const link = !hasFarm ? '/cadastro-fazenda' : '/';
+  const farm = useFarmSelect();
+  const link = !farm ? '/cadastro-fazenda' : '/';
 
   return (
     <section className='w-full max-w-[1232px] h-full flex flex-col items-center justify-center gap-8 px-4 mx-auto'>
-      <img src={NotFoundIcon} alt='Banner Not Found' className='w-1/2 max-w-[448px]' />
-      <h1 className='text-2xl font-medium text-primary-foreground text-center'>
+      <img src={NotFoundIcon} alt='Banner Not Found' className='w-3/4 max-w-[448px]' />
+      <h1 className='text-xl md:text-2xl font-medium text-primary-foreground text-center'>
         Ops! A página que você procura não existe...
       </h1>
       <Button className='cursor-pointer duration-300 font-medium text-base' asChild>

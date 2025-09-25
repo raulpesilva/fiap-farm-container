@@ -13,16 +13,16 @@ import {
   Sales,
   Stocks,
 } from '../pages';
-import { useHasFarmSelect, useIsAuthenticatedSelect } from '../states';
+import { useFarmSelect, useTokenSelect } from '../states';
 
 export const AppRoutes = () => {
-  const isAuthenticated = useIsAuthenticatedSelect();
-  const hasFarm = useHasFarmSelect();
+  const token = useTokenSelect();
+  const farm = useFarmSelect();
 
   return (
     <Routes>
       {/* Usuário não logado */}
-      {!isAuthenticated && (
+      {!token && (
         <Route element={<PublicLayout />}>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
@@ -32,7 +32,7 @@ export const AppRoutes = () => {
       )}
 
       {/* Usuário logado mas sem fazenda */}
-      {isAuthenticated && !hasFarm && (
+      {!!token && !farm && (
         <Route element={<AddFarmLayout />}>
           <Route path='/cadastro-fazenda' element={<AddFarm />} />
           <Route path='*' element={<NotFound />} />
@@ -40,7 +40,7 @@ export const AppRoutes = () => {
       )}
 
       {/* Usuário logado com fazenda */}
-      {isAuthenticated && hasFarm && (
+      {!!token && !!farm && (
         <Route element={<AppLayout />}>
           <Route path='/' element={<Stocks />} />
           <Route path='/vendas' element={<Sales />} />

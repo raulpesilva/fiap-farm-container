@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
+import { dispatchToken } from '@/states';
 import { LoaderCircle } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -19,8 +20,7 @@ const useFormSignUp = () => {
     try {
       setLoading(true);
       if (!email || !password || !confirmPassword) return setError('Preencha todos os campos');
-      // const user = await createUserWithEmailAndPassword(auth, email, password);
-      // if (user) dispatchIsAuthenticated(true);
+      dispatchToken('fake-jwt-token');
     } catch (error: any) {
       console.log('Error creating account:', error);
       if (error.message.includes('auth/invalid-email')) return setError('E-mail inválido');

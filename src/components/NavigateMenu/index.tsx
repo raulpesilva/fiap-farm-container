@@ -32,7 +32,7 @@ const MenuItem = ({ name, link }: MenuItemProps) => {
 
 export const NavigateMenu = () => {
   return (
-    <NavigationMenu>
+    <NavigationMenu className='order-4 md:order-1 mx-auto md:mx-0 min-w-full md:min-w-0'>
       <NavigationMenuList>
         <MenuItem name='Estoques' link='/' />
         <MenuItem name='Vendas' link='/vendas' />

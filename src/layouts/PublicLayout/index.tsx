@@ -10,10 +10,10 @@ export const PublicLayout = () => {
   return (
     <div className='w-full h-full flex flex-col'>
       <header className='w-full min-h-24 flex items-center justify-center bg-background shadow-lg shadow-background fixed top-0 z-10'>
-        <div className='w-full max-w-[1232px] h-full flex items-center justify-between px-4'>
+        <div className='w-full max-w-[1232px] h-full flex items-center justify-between gap-4 md:gap-8 px-4'>
           <Logo />
 
-          <div className='flex gap-4'>
+          <div className='flex gap-2 md:gap-4'>
             {!isLogin && (
               <Button className='cursor-pointer duration-300 font-medium text-base' asChild>
                 <Link to='/login'>Entrar</Link>
