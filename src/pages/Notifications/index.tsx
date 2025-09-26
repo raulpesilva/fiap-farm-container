@@ -4,13 +4,6 @@ import { dispatchNotifications, useNotificationsSelect } from '@/states';
 import { useEffect, useState } from 'react';
 import NotificationIcon from '../../assets/icons/notification-un-draw.svg';
 
-//  const useUnreadNotificationsCount = () => {
-//   const notifications = useNotificationsSelect();
-//   if (!notifications?.length) return 0;
-
-//   return notifications.filter((notification) => !notification.read).length;
-// };
-
 const useSortedNotifications = () => {
   const notifications = useNotificationsSelect();
   const [loading, setLoading] = useState(notifications.length === 0);
