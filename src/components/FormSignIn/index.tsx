@@ -29,7 +29,7 @@ const useFormSignIn = () => {
         if (math) navigate('/');
       } catch {
         dispatchFarm(null);
-        navigate('/cadastro-fazenda');
+        if (math) navigate('/cadastro-fazenda');
       }
     } catch (error: any) {
       console.log('Error signing in with email and password:', error);
