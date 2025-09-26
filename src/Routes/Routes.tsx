@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { AddFarmLayout, AppLayout, MainLayout, PublicLayout } from '../layouts';
 import {
   Account,
@@ -55,6 +55,7 @@ export const AppRoutes = () => {
             <Route path='/produtos' element={<Products />} />
             <Route path='/notificacoes' element={<Notifications />} />
             <Route path='/minha-conta' element={<Account />} />
+            <Route path='/cadastro-fazenda' element={<Navigate to='/' replace />} />
             <Route path='*' element={<NotFound />} />
           </Route>
         )}
