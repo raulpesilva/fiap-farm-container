@@ -28,6 +28,12 @@ export const AppRoutes = () => {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/cadastro' element={<Register />} />
+            <Route path='/cadastro-fazenda' element={<Login />} />
+            <Route path='/vendas' element={<Login />} />
+            <Route path='/metas' element={<Login />} />
+            <Route path='/produtos' element={<Login />} />
+            <Route path='/notificacoes' element={<Login />} />
+            <Route path='/minha-conta' element={<Login />} />
             <Route path='*' element={<NotFound />} />
           </Route>
         )}

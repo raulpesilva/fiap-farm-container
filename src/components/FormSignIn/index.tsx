@@ -7,7 +7,7 @@ import { getMyFarm, signIn } from '@/services';
 import { dispatchFarm, dispatchToken } from '@/states';
 import { LoaderCircle } from 'lucide-react';
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useMatch, useNavigate } from 'react-router-dom';
 
 const useFormSignIn = () => {
   const navigate = useNavigate();
@@ -15,6 +15,7 @@ const useFormSignIn = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const math = useMatch('/login');
 
   const handleLogin = async () => {
     try {
@@ -25,7 +26,7 @@ const useFormSignIn = () => {
       try {
         const farm = await getMyFarm();
         dispatchFarm(farm);
-        navigate('/');
+        if (math) navigate('/');
       } catch {
         dispatchFarm(null);
         navigate('/cadastro-fazenda');
