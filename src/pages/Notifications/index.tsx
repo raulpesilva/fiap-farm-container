@@ -1,15 +1,8 @@
+import { NotificationCard } from '@/components';
 import { getNotifications } from '@/services';
 import { dispatchNotifications, useNotificationsSelect } from '@/states';
 import { useEffect, useState } from 'react';
 import NotificationIcon from '../../assets/icons/notification-un-draw.svg';
-
-//  const useNotificationActions = () => {
-//   const markAsRead = async (id: number) => {
-//     await markNotificationAsRead(id);
-//   };
-
-//   return { markAsRead };
-// };
 
 //  const useUnreadNotificationsCount = () => {
 //   const notifications = useNotificationsSelect();
@@ -56,43 +49,31 @@ const useSortedNotifications = () => {
 export const Notifications = () => {
   const { sortedNotifications, loading } = useSortedNotifications();
 
-  if (loading && !sortedNotifications?.length) {
-    return (
-      <section className='w-full max-w-[1232px] h-full flex items-center justify-center px-4 mx-auto'>
-        <span className='text-sm text-muted-foreground text-center'>Carregando notificações...</span>
-      </section>
-    );
-  }
-
-  if (!sortedNotifications?.length) {
-    return (
-      <section className='w-full max-w-[1232px] h-full flex flex-col gap-8 items-center justify-center px-4 mx-auto'>
-        <span className='text-sm text-muted-foreground text-center'>Você ainda não tem notificações</span>
-        <img src={NotificationIcon} alt='Banner Not Found' className='w-3/4 max-w-[448px] aspect-[224/145]' />
-      </section>
-    );
-  }
-
   return (
-    <section className='w-full max-w-[1232px] h-full flex flex-col items-center justify-center p-4 mx-auto'>
-      {/* {!!sortedNotifications?.length && (
-        <FlatList
-          data={sortedNotifications}
-          renderItem={({ item }) => (
-            <NotificationCard
-              id={item.id}
-              type={item.type}
-              title={item.title}
-              message={item.message}
-              read={item.read}
-            />
-          )}
-          keyExtractor={(item) => String(item.id)}
-        
-          ItemSeparatorComponent={() => <View />}
-          showsVerticalScrollIndicator={false}
-        />
-      )} */}
+    <section className='w-full max-w-[1232px] h-full flex flex-col items-center gap-8 p-4 mx-auto'>
+      <h1 className='text-xl md:text-2xl font-medium text-primary-foreground text-center'>Notificações</h1>
+
+      {loading && !sortedNotifications?.length && (
+        <div className='w-full h-full flex items-center justify-center'>
+          <span className='text-sm text-muted-foreground text-center'>Carregando notificações...</span>
+        </div>
+      )}
+
+      {!sortedNotifications?.length && (
+        <div className='w-full h-full flex flex-col items-center justify-center gap-8'>
+          <span className='text-sm text-muted-foreground text-center'>Você ainda não tem notificações</span>
+          <img src={NotificationIcon} alt='Banner Not Found' className='w-3/4 max-w-[448px] aspect-[224/145]' />
+        </div>
+      )}
+
+      {!!sortedNotifications?.length && (
+        <div className='w-full h-full flex flex-col gap-3'>
+          {!!sortedNotifications?.length &&
+            sortedNotifications.map((n) => (
+              <NotificationCard key={n.id} id={n.id} type={n.type} title={n.title} message={n.message} read={n.read} />
+            ))}
+        </div>
+      )}
     </section>
   );
 };

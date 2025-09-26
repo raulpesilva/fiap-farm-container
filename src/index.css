@@ -42,7 +42,35 @@
   --color-error: var(--error);
 }
 
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--color-scrollbar-track);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--color-scrollbar-thumb);
+    border-radius: 9999px;
+    border: 2px solid var(--color-scrollbar-track);
+  }
+}
+
 :root {
+  --color-scrollbar-thumb: #178fff;
+  --color-scrollbar-track: #f6f6f5;
+  --harvest: #11c76cff;
+  --sale: #cf3c3cff;
+  --plant: #5e3311ff;
+  --storage: #1b4daaff;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
@@ -78,6 +106,12 @@
 }
 
 .dark {
+  --color-scrollbar-thumb: var(--primary);
+  --color-scrollbar-track: var(--background);
+  --harvest: #11c76cff;
+  --sale: #cf3c3cff;
+  --plant: #5e3311ff;
+  --storage: #1b4daaff;
   --background: #0b090a;
   --foreground: #f6f6f5; /* gray50 */
   --card: #18181b;
@@ -109,7 +143,7 @@
   --sidebar-accent-foreground: #f6f6f5; /* gray50 */
   --sidebar-border: #ffffff1a;
   --sidebar-ring: #71717b;
-  --error: #BF1313;
+  --error: #bf1313;
 }
 
 @layer base {
