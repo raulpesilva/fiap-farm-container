@@ -23,7 +23,7 @@ export const NotificationCard = ({ id, type, title, message, read }: Notificatio
       <CardAction className='w-full'>
         <Button
           variant='ghost'
-          className='w-full h-auto justify-start p-0 rounded-xl text-start cursor-pointer'
+          className='w-full h-auto justify-start p-0 rounded-xl text-start cursor-pointer duration-300'
           onClick={() => markAsRead(id)}
         >
           <CardContent className='w-full flex gap-4 items-center p-6'>

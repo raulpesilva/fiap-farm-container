@@ -25,7 +25,7 @@ export const AppLayout = () => {
             <Button
               variant={formattedPathname === '/notificacoes' ? 'default' : 'outline'}
               size='icon'
-              className='size-9 cursor-pointer'
+              className='size-9 cursor-pointer duration-300'
               asChild
             >
               <Link to='/notificacoes' className='relative'>
