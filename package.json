@@ -15,6 +15,7 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@raulpesilva/re-state": "^1.2.32",
     "@tailwindcss/vite": "^4.1.13",
+    "axios": "^1.12.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "jose": "^6.1.0",
@@ -22,6 +23,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.1",
+    "socket.io-client": "^4.8.1",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.13",
     "use-sync-external-store": "^1.5.0"
@@ -43,7 +45,7 @@
     "typescript-eslint": "^8.39.1",
     "vite": "^7.1.2"
   },
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.17.1",
   "engines": {
     "node": ">=22.0.0"
   },

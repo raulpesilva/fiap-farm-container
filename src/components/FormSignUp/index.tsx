@@ -3,12 +3,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
+import { signUp } from '@/services';
 import { dispatchToken } from '@/states';
 import { LoaderCircle } from 'lucide-react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const useFormSignUp = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -19,8 +21,11 @@ const useFormSignUp = () => {
     if (password !== confirmPassword) return setError('As senhas não coincidem');
     try {
       setLoading(true);
+      if (!email.includes('@')) return setError('E-mail inválido');
       if (!email || !password || !confirmPassword) return setError('Preencha todos os campos');
-      dispatchToken('fake-jwt-token');
+      const response = await signUp({ email, password, name: email.split('@')[0] });
+      dispatchToken(response.token);
+      navigate('/cadastro-fazenda');
     } catch (error: any) {
       console.log('Error creating account:', error);
       if (error.message.includes('auth/invalid-email')) return setError('E-mail inválido');

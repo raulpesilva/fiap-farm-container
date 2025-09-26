@@ -1,9 +1,12 @@
 import { Footer, Logo, NavigateMenu } from '@/components';
 import { Button } from '@/components/ui/button';
+import { useWebSocket } from '@/hooks';
 import { Bell } from 'lucide-react';
 import { Link, Outlet } from 'react-router-dom';
 
 export const AppLayout = () => {
+  useWebSocket();
+
   return (
     <div className='w-full h-full flex flex-col'>
       <header className='w-full min-h-28 md:min-h-24 flex items-center justify-center bg-background shadow-lg shadow-background fixed top-0 z-10'>

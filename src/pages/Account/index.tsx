@@ -9,7 +9,11 @@ const useAccount = () => {
   const navigate = useNavigate();
 
   const handleGoBack = () => navigate('/');
-  const handleSignOut = () => logout();
+
+  const handleSignOut = () => {
+    logout();
+    navigate('/login');
+  };
 
   return { handleGoBack, handleSignOut };
 };

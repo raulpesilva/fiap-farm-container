@@ -1,11 +1,12 @@
 import { Button } from '@/components/ui/button';
-import { useFarmSelect } from '@/states';
+import { useFarmSelect, useTokenSelect } from '@/states';
 import { Link } from 'react-router-dom';
 import NotFoundIcon from '../../assets/icons/not-found-un-draw.svg';
 
 export const NotFound = () => {
+  const token = useTokenSelect();
   const farm = useFarmSelect();
-  const link = !farm ? '/cadastro-fazenda' : '/';
+  const link = !!token && !farm ? '/cadastro-fazenda' : '/';
 
   return (
     <section className='w-full max-w-[1232px] h-full flex flex-col items-center justify-center gap-8 px-4 mx-auto'>

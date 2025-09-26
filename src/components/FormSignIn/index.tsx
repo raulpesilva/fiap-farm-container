@@ -3,14 +3,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
-import { dispatchToken, useFarmSelect } from '@/states';
+import { getMyFarm, signIn } from '@/services';
+import { dispatchFarm, dispatchToken } from '@/states';
 import { LoaderCircle } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 const useFormSignIn = () => {
   const navigate = useNavigate();
-  const farm = useFarmSelect();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -20,8 +20,16 @@ const useFormSignIn = () => {
     try {
       setLoading(true);
       if (!email || !password) return setError('Preencha todos os campos');
-      dispatchToken('fake-jwt-token');
-      navigate(!farm ? '/cadastro-fazenda' : '/');
+      const response = await signIn({ email, password });
+      dispatchToken(response.token);
+      try {
+        const farm = await getMyFarm();
+        dispatchFarm(farm);
+        navigate('/');
+      } catch {
+        dispatchFarm(null);
+        navigate('/cadastro-fazenda');
+      }
     } catch (error: any) {
       console.log('Error signing in with email and password:', error);
       if (error.message.includes('auth/invalid-email')) return setError('E-mail inválido');

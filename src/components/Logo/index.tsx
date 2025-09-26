@@ -1,4 +1,4 @@
-import { useFarmSelect } from '@/states';
+import { useFarmSelect, useTokenSelect } from '@/states';
 import { Link } from 'react-router-dom';
 import LogoIcon from '../../assets/icons/logo.svg';
 
@@ -7,10 +7,11 @@ interface LogoProps {
 }
 
 export const Logo = ({ width }: LogoProps) => {
+  const token = useTokenSelect();
   const farm = useFarmSelect();
   const isMobile = window.innerWidth < 768;
 
-  const link = !farm ? '/cadastro-fazenda' : '/';
+  const link = !!token && !farm ? '/cadastro-fazenda' : '/';
 
   return (
     <Link

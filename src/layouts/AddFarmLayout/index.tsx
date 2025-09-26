@@ -1,10 +1,15 @@
 import { Footer, Logo } from '@/components';
 import { Button } from '@/components/ui/button';
 import { logout } from '@/functions';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 
 export const AddFarmLayout = () => {
-  const handleSignOut = () => logout();
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    logout();
+    navigate('/login');
+  };
 
   return (
     <div className='w-full h-full flex flex-col'>
