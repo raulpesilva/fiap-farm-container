@@ -7,8 +7,12 @@ import AccountIcon from '../../assets/icons/account-un-draw.svg';
 
 const useAccount = () => {
   const navigate = useNavigate();
+  const canGoBack = window.history.state && window.history.state.idx > 0;
 
-  const handleGoBack = () => navigate('/');
+  const handleGoBack = () => {
+    if (canGoBack) navigate(-1);
+    else navigate('/');
+  };
 
   const handleSignOut = () => {
     logout();
@@ -37,7 +41,7 @@ export const Account = () => {
             className='cursor-pointer duration-300 font-medium text-base'
             variant='default'
           >
-            Voltar para o dashboard
+            Voltar de onde parou
           </Button>
 
           <Button
