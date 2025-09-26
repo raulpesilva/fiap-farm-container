@@ -68,7 +68,7 @@ export const Notifications = () => {
     return (
       <section className='w-full max-w-[1232px] h-full flex flex-col gap-8 items-center justify-center px-4 mx-auto'>
         <span className='text-sm text-muted-foreground text-center'>Você ainda não tem notificações</span>
-        <img src={NotificationIcon} alt='Banner Not Found' className='w-3/4 max-w-[448px]' />
+        <img src={NotificationIcon} alt='Banner Not Found' className='w-3/4 max-w-[448px] aspect-[224/145]' />
       </section>
     );
   }

@@ -54,7 +54,7 @@ export const Account = () => {
         </CardContent>
       </Card>
 
-      <img src={AccountIcon} alt='Banner Not Found' className='w-3/4 max-w-[448px]' />
+      <img src={AccountIcon} alt='Banner Not Found' className='w-3/4 max-w-[448px] aspect-[448/255]' />
     </section>
   );
 };
