@@ -27,6 +27,7 @@ export const AppRoutes = () => {
           <Route element={<PublicLayout />}>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
+
             <Route path='/cadastro' element={<Register />} />
             <Route path='/cadastro-fazenda' element={<Login />} />
             <Route path='/vendas' element={<Login />} />
@@ -34,6 +35,7 @@ export const AppRoutes = () => {
             <Route path='/produtos' element={<Login />} />
             <Route path='/notificacoes' element={<Login />} />
             <Route path='/minha-conta' element={<Login />} />
+
             <Route path='*' element={<NotFound />} />
           </Route>
         )}
@@ -41,8 +43,7 @@ export const AppRoutes = () => {
         {/* Usuário logado mas sem fazenda */}
         {!!token && !farm && (
           <Route element={<AddFarmLayout />}>
-            <Route path='/cadastro-fazenda' element={<AddFarm />} />
-            <Route path='*' element={<NotFound />} />
+            <Route path='*' element={<AddFarm />} />
           </Route>
         )}
 
@@ -55,7 +56,11 @@ export const AppRoutes = () => {
             <Route path='/produtos' element={<Products />} />
             <Route path='/notificacoes' element={<Notifications />} />
             <Route path='/minha-conta' element={<Account />} />
+
+            <Route path='/login' element={<Navigate to='/' replace />} />
+            <Route path='/cadastro' element={<Navigate to='/' replace />} />
             <Route path='/cadastro-fazenda' element={<Navigate to='/' replace />} />
+
             <Route path='*' element={<NotFound />} />
           </Route>
         )}
