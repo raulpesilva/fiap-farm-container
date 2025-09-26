@@ -16,12 +16,12 @@ const MenuItem = ({ name, link }: MenuItemProps) => {
   const formattedPathname = pathname.toLowerCase();
   const formattedName = name.toLowerCase();
 
+  const isActive = (link === '/' && pathname === '/') || (link !== '/' && formattedPathname.includes(formattedName));
+
   return (
     <NavigationMenuItem>
       <NavigationMenuLink
-        className={`uppercase font-medium text-primary-foreground ${
-          formattedPathname.includes(formattedName) ? 'text-primary hover:text-primary' : ''
-        }`}
+        className={`uppercase font-medium ${isActive ? 'text-primary hover:text-primary' : 'text-primary-foreground'}`}
         asChild
       >
         <Link to={link}>{name}</Link>
