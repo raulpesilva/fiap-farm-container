@@ -3,12 +3,14 @@ import { Button } from '@/components/ui/button';
 import { useWebSocket } from '@/hooks';
 import { useNotificationsSelect } from '@/states';
 import { Bell } from 'lucide-react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 
 export const AppLayout = () => {
   useWebSocket();
-
+  const { pathname } = useLocation();
   const notifications = useNotificationsSelect();
+
+  const formattedPathname = pathname.toLowerCase();
   const unreadNotificationsCount = notifications?.filter((notification) => !notification.read).length;
 
   return (
@@ -20,18 +22,27 @@ export const AppLayout = () => {
           <NavigateMenu />
 
           <div className='flex order-3 gap-2 md:gap-4'>
-            <Button variant='outline' size='icon' className='size-9 cursor-pointer' asChild>
+            <Button
+              variant={formattedPathname === '/notificacoes' ? 'default' : 'outline'}
+              size='icon'
+              className='size-9 cursor-pointer'
+              asChild
+            >
               <Link to='/notificacoes' className='relative'>
                 <Bell />
                 {unreadNotificationsCount > 0 && (
                   <div className='w-6 h-6 flex items-center justify-center bg-primary rounded-2xl absolute -top-2 -right-2'>
-                    <span className='text-primary-foreground text-xs'>{`${unreadNotificationsCount}`}</span>
+                    <span className='text-primary-foreground text-xs font-bold'>{`${unreadNotificationsCount}`}</span>
                   </div>
                 )}
               </Link>
             </Button>
 
-            <Button variant='outline' className='cursor-pointer duration-300 font-medium text-base' asChild>
+            <Button
+              variant={formattedPathname === '/minha-conta' ? 'default' : 'outline'}
+              className='cursor-pointer duration-300 font-medium text-base min-w-32'
+              asChild
+            >
               <Link to='/minha-conta'>Minha conta</Link>
             </Button>
           </div>
