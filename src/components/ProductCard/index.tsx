@@ -19,10 +19,10 @@ export const ProductCard = ({ id, name, icon, color }: ProductCardProps) => {
         >
           <CardContent className='w-full flex gap-4 items-center p-6'>
             <div
-              className='w-8 min-w-8 h-8 flex items-center justify-center rounded-lg bg-background'
+              className='w-10 min-w-10 h-10 flex items-center justify-center rounded-lg bg-background'
               style={{ color: color }}
             >
-              <Icon type={icon} />
+              <Icon type={icon} size={24} />
             </div>
             <CardTitle className='text-wrap'>{name}</CardTitle>
           </CardContent>

@@ -27,10 +27,10 @@ export const NotificationCard = ({ id, type, title, message, read }: Notificatio
         >
           <CardContent className='w-full flex gap-4 items-center p-6'>
             <div
-              className='w-8 min-w-8 h-8 flex items-center justify-center rounded-lg bg-foreground'
+              className='w-10 min-w-10 h-10 flex items-center justify-center rounded-lg bg-foreground'
               style={{ color: NOTIFICATION_TYPE_COLOR[type] || NOTIFICATION_TYPE_COLOR.default }}
             >
-              <Icon type='goal' className='w-6 h-6 fill-current' />
+              <Icon type='goal' size={24} className='w-6 h-6 fill-current' />
             </div>
 
             <div className='flex flex-col gap-1'>
@@ -38,7 +38,7 @@ export const NotificationCard = ({ id, type, title, message, read }: Notificatio
               <CardDescription className='text-wrap'>{message}</CardDescription>
             </div>
 
-            {!read && <Icon type='bell' className='w-4 h-4 ml-auto' />}
+            {!read && <Icon size={18} type='bell' className='w-4 h-4 ml-auto' />}
           </CardContent>
         </Button>
       </CardAction>
