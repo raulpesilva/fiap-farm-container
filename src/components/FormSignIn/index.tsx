@@ -19,8 +19,8 @@ const useFormSignIn = () => {
 
   const handleLogin = async () => {
     try {
-      setLoading(true);
       if (!email || !password) return setError('Preencha todos os campos');
+      setLoading(true);
       const response = await signIn({ email, password });
       dispatchToken(response.token);
       try {
@@ -33,10 +33,9 @@ const useFormSignIn = () => {
       }
     } catch (error: any) {
       console.log('Error signing in with email and password:', error);
-      if (error.message.includes('auth/invalid-email')) return setError('E-mail inválido');
-      if (error.message.includes('auth/wrong-password')) return setError('Senha incorreta');
-      if (error.message.includes('auth/user-not-found')) return setError('Usuário não encontrado');
-      setError('Sign in failed: ' + error.message);
+      let message = 'Sign in failed: ' + error.message;
+      if (error.response.data.error.includes('email or password is incorrect')) message = 'E-mail ou senha incorretos';
+      setError(message);
       setLoading(false);
     }
   };
