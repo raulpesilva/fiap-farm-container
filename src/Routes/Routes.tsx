@@ -4,6 +4,7 @@ import {
   Account,
   AddFarm,
   AddProduct,
+  EditProduct,
   Goals,
   Home,
   Login,
@@ -56,6 +57,7 @@ export const AppRoutes = () => {
             <Route path='/metas' element={<Goals />} />
             <Route path='/produtos' element={<Products />} />
             <Route path='/produtos/cadastro' element={<AddProduct />} />
+            <Route path='/produtos/:idProduct' element={<EditProduct />} />
             <Route path='/notificacoes' element={<Notifications />} />
             <Route path='/minha-conta' element={<Account />} />
 
