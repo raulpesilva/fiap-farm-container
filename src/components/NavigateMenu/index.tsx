@@ -21,7 +21,9 @@ const MenuItem = ({ name, link }: MenuItemProps) => {
   return (
     <NavigationMenuItem>
       <NavigationMenuLink
-        className={`uppercase font-medium ${isActive ? 'text-primary hover:text-primary' : 'text-primary-foreground'}`}
+        className={`uppercase font-medium ${
+          isActive ? 'text-primary hover:text-primary focus:text-primary' : 'text-primary-foreground'
+        }`}
         asChild
       >
         <Link to={link}>{name}</Link>
