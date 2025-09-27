@@ -18,20 +18,19 @@ const useFormSignUp = () => {
   const [loading, setLoading] = useState(false);
 
   const handleCreateAccount = async () => {
-    if (password !== confirmPassword) return setError('As senhas não coincidem');
     try {
-      setLoading(true);
-      if (!email.includes('@')) return setError('E-mail inválido');
       if (!email || !password || !confirmPassword) return setError('Preencha todos os campos');
+      if (!email.includes('@')) return setError('E-mail inválido');
+      if (password !== confirmPassword) return setError('As senhas não coincidem');
+      setLoading(true);
       const response = await signUp({ email, password, name: email.split('@')[0] });
       dispatchToken(response.token);
       navigate('/cadastro-fazenda');
     } catch (error: any) {
       console.log('Error creating account:', error);
-      if (error.message.includes('auth/invalid-email')) return setError('E-mail inválido');
-      if (error.message.includes('auth/weak-password')) return setError('A senha deve ter pelo menos 6 caracteres');
-      if (error.message.includes('auth/email-already-in-use')) return setError('E-mail já cadastrado');
-      setError('Sign in failed: ' + error.message);
+      let message = 'Sign in failed: ' + error.message;
+      if (error.response.data.error.includes('already exists')) message = 'E-mail já cadastrado';
+      setError(message);
       setLoading(false);
     }
   };
