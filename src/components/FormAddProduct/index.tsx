@@ -18,7 +18,8 @@ const useFormAddProduct = () => {
   const [error, setError] = useState({ name: '', icon: '', color: '' });
   const [loading, setLoading] = useState(false);
 
-  const handleCreateProduct = async () => {
+  const handleCreateProduct = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
     try {
       setLoading(true);
       setError({ name: '', icon: '', color: '' });
@@ -133,10 +134,7 @@ export function FormAddProduct() {
             <Button
               type='submit'
               className='w-full cursor-pointer duration-300'
-              onClick={(e) => {
-                e.preventDefault();
-                handleCreateProduct();
-              }}
+              onClick={(e) => handleCreateProduct(e)}
               disabled={loading}
             >
               {loading ? <LoaderCircle className='animate-spin' /> : 'Cadastrar produto'}

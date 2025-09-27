@@ -35,7 +35,8 @@ const useFormEditProduct = (id: number) => {
   const edited = product?.name !== name || product?.icon !== icon?.icon || product?.color !== color?.type;
   const canGoBack = window.history.state && window.history.state.idx > 0;
 
-  const handleUpdateProduct = async () => {
+  const handleUpdateProduct = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
     if (!product) return;
     try {
       setLoading(true);
@@ -57,7 +58,8 @@ const useFormEditProduct = (id: number) => {
     }
   };
 
-  const handleDeleteProduct = async () => {
+  const handleDeleteProduct = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
     if (!product) return;
     try {
       setLoading(true);
@@ -183,10 +185,7 @@ export const FormEditProduct = ({ id }: FormEditProductProps) => {
               <Button
                 type='submit'
                 className='w-full cursor-pointer duration-300'
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleUpdateProduct();
-                }}
+                onClick={(e) => handleUpdateProduct(e)}
                 disabled={loading}
               >
                 {loading ? <LoaderCircle className='animate-spin' /> : 'Salvar alterações'}
@@ -198,10 +197,7 @@ export const FormEditProduct = ({ id }: FormEditProductProps) => {
                 type='submit'
                 variant='destructive'
                 className='w-full cursor-pointer duration-300'
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleDeleteProduct();
-                }}
+                onClick={(e) => handleDeleteProduct(e)}
                 disabled={loading}
               >
                 {loading ? <LoaderCircle className='animate-spin' /> : 'Excluir produto'}

@@ -17,7 +17,8 @@ const useFormSignIn = () => {
   const [loading, setLoading] = useState(false);
   const math = useMatch('/login');
 
-  const handleLogin = async () => {
+  const handleLogin = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
     try {
       if (!email || !password) return setError('Preencha todos os campos');
       setLoading(true);
@@ -87,10 +88,7 @@ export function FormSignIn({ className, ...props }: React.ComponentProps<'div'>)
               <Button
                 type='submit'
                 className='w-full cursor-pointer duration-300'
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleLogin();
-                }}
+                onClick={(e) => handleLogin(e)}
                 disabled={loading}
               >
                 {loading ? <LoaderCircle className='animate-spin' /> : 'Entrar'}

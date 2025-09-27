@@ -17,7 +17,8 @@ const useFormSignUp = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  const handleCreateAccount = async () => {
+  const handleCreateAccount = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
     try {
       if (!email || !password || !confirmPassword) return setError('Preencha todos os campos');
       if (!email.includes('@')) return setError('E-mail inválido');
@@ -114,10 +115,7 @@ export function FormSignUp({ className, ...props }: React.ComponentProps<'div'>)
               <Button
                 type='submit'
                 className='w-full cursor-pointer duration-300'
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleCreateAccount();
-                }}
+                onClick={(e) => handleCreateAccount(e)}
                 disabled={loading}
               >
                 {loading ? <LoaderCircle className='animate-spin' /> : 'Cadastrar'}
