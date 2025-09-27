@@ -1,13 +1,4 @@
-import AppleIcon from '../../assets/icons/apple.svg?react';
-import BananaIcon from '../../assets/icons/banana.svg?react';
-import CarrotIcon from '../../assets/icons/carrot.svg?react';
-import CherryIcon from '../../assets/icons/cherry.svg?react';
-import CitrusIcon from '../../assets/icons/citrus.svg?react';
-import GrapeIcon from '../../assets/icons/grape.svg?react';
-import LeafyIcon from '../../assets/icons/leafy.svg?react';
-import LogoIcon from '../../assets/icons/logo.svg?react';
-import SproutIcon from '../../assets/icons/sprout.svg?react';
-import VeganIcon from '../../assets/icons/vegan.svg?react';
+import type { ICON_MAP } from '../icon';
 
 export interface ProductItem {
   id: number;
@@ -18,19 +9,6 @@ export interface ProductItem {
   created_at: string;
   updated_at: string;
 }
-
-export const ICON_MAP = {
-  apple: AppleIcon,
-  banana: BananaIcon,
-  carrot: CarrotIcon,
-  cherry: CherryIcon,
-  citrus: CitrusIcon,
-  grape: GrapeIcon,
-  leafy: LeafyIcon,
-  logo: LogoIcon,
-  sprout: SproutIcon,
-  vegan: VeganIcon,
-};
 
 export const COLOR_MAP: Record<string, string> = {
   red: '#FF6467',

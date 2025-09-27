@@ -1,4 +1,4 @@
-import { ICON_MAP } from '@/@types/product';
+import { ICON_MAP } from '@/@types/icon';
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
   type: keyof typeof ICON_MAP;
