@@ -61,10 +61,9 @@ export const Notifications = () => {
 
       {!loading && !!sortedNotifications?.length && (
         <div className='w-full h-full flex flex-col gap-3'>
-          {!!sortedNotifications?.length &&
-            sortedNotifications.map((n) => (
-              <NotificationCard key={n.id} id={n.id} type={n.type} title={n.title} message={n.message} read={n.read} />
-            ))}
+          {sortedNotifications.map((n) => (
+            <NotificationCard key={n.id} id={n.id} type={n.type} title={n.title} message={n.message} read={n.read} />
+          ))}
         </div>
       )}
     </section>
