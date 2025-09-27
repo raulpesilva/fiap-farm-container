@@ -1,3 +1,4 @@
+export * from './EmptyState';
 export * from './Footer';
 export * from './FormSignIn';
 export * from './FormSignUp';
