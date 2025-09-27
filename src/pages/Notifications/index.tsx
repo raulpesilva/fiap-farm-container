@@ -52,14 +52,14 @@ export const Notifications = () => {
         </div>
       )}
 
-      {!sortedNotifications?.length && (
+      {!loading && !sortedNotifications?.length && (
         <div className='w-full h-full flex flex-col items-center justify-center gap-8'>
           <span className='text-sm text-muted-foreground text-center'>Você ainda não tem notificações</span>
           <img src={NotificationIcon} alt='Banner Not Found' className='w-3/4 max-w-[448px] aspect-[224/145]' />
         </div>
       )}
 
-      {!!sortedNotifications?.length && (
+      {!loading && !!sortedNotifications?.length && (
         <div className='w-full h-full flex flex-col gap-3'>
           {!!sortedNotifications?.length &&
             sortedNotifications.map((n) => (
