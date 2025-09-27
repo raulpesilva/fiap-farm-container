@@ -1,12 +1,13 @@
+import { FormEditProduct } from '@/components';
 import { useParams } from 'react-router-dom';
 
 export const EditProduct = () => {
   const params = useParams();
 
   return (
-    <div>
-      EditProduct
-      {params.idProduct}
-    </div>
+    <section className='w-full max-w-[1232px] h-full flex flex-col items-center gap-8 p-4 mx-auto'>
+      <h1 className='text-xl md:text-2xl font-medium text-primary-foreground text-center'>Editar produto</h1>
+      <FormEditProduct id={Number(params.idProduct)} />
+    </section>
   );
 };
