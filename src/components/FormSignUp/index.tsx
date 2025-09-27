@@ -28,8 +28,8 @@ const useFormSignUp = () => {
       navigate('/cadastro-fazenda');
     } catch (error: any) {
       console.log('Error creating account:', error);
-      let message = 'Sign in failed: ' + error.message;
-      if (error.response.data.error.includes('already exists')) message = 'E-mail já cadastrado';
+      let message = 'Sign in failed: ' + error?.message;
+      if (error?.response?.data?.error?.includes('already exists')) message = 'E-mail já cadastrado';
       setError(message);
       setLoading(false);
     }

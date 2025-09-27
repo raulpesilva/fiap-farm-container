@@ -33,8 +33,9 @@ const useFormSignIn = () => {
       }
     } catch (error: any) {
       console.log('Error signing in with email and password:', error);
-      let message = 'Sign in failed: ' + error.message;
-      if (error.response.data.error.includes('email or password is incorrect')) message = 'E-mail ou senha incorretos';
+      let message = 'Sign in failed: ' + error?.message;
+      if (error?.response?.data?.error?.includes('email or password is incorrect'))
+        message = 'E-mail ou senha incorretos';
       setError(message);
       setLoading(false);
     }
