@@ -1,8 +1,7 @@
-import { NotificationCard } from '@/components';
+import { Icon, NotificationCard } from '@/components';
 import { getNotifications } from '@/services';
 import { dispatchNotifications, useNotificationsSelect } from '@/states';
 import { useEffect, useState } from 'react';
-import NotificationIcon from '../../assets/icons/notification-un-draw.svg';
 
 const useSortedNotifications = () => {
   const notifications = useNotificationsSelect();
@@ -55,7 +54,7 @@ export const Notifications = () => {
       {!loading && !sortedNotifications?.length && (
         <div className='w-full h-full flex flex-col items-center justify-center gap-8'>
           <span className='text-sm text-muted-foreground text-center'>Você ainda não tem notificações</span>
-          <img src={NotificationIcon} alt='Banner Not Found' className='w-3/4 max-w-[448px] aspect-[224/145]' />
+          <Icon type='notification' className='w-3/4 max-w-[448px] h-fit' />
         </div>
       )}
 

@@ -1,7 +1,6 @@
 import type { NotificationItem } from '@/@types/notification';
 import { markNotificationAsRead } from '@/services';
-import BellIcon from '../../assets/icons/bell.svg?react';
-import GoalIcon from '../../assets/icons/goal.svg?react';
+import { Icon } from '../Icon';
 import { Button } from '../ui/button';
 import { Card, CardAction, CardContent, CardDescription, CardTitle } from '../ui/card';
 
@@ -31,7 +30,7 @@ export const NotificationCard = ({ id, type, title, message, read }: Notificatio
               className='w-8 min-w-8 h-8 flex items-center justify-center rounded-lg bg-foreground'
               style={{ color: NOTIFICATION_TYPE_COLOR[type] || NOTIFICATION_TYPE_COLOR.default }}
             >
-              <GoalIcon className='w-6 h-6 fill-current' />
+              <Icon type='goal' className='w-6 h-6 fill-current' />
             </div>
 
             <div className='flex flex-col gap-1'>
@@ -39,7 +38,7 @@ export const NotificationCard = ({ id, type, title, message, read }: Notificatio
               <CardDescription className='text-wrap'>{message}</CardDescription>
             </div>
 
-            {!read && <BellIcon className='w-4 h-4 ml-auto' />}
+            {!read && <Icon type='bell' className='w-4 h-4 ml-auto' />}
           </CardContent>
         </Button>
       </CardAction>

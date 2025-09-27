@@ -1,9 +1,9 @@
+import { Icon } from '@/components';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardTitle } from '@/components/ui/card';
 import { logout } from '@/functions';
 import { useUserSelect } from '@/states';
 import { useNavigate } from 'react-router-dom';
-import AccountIcon from '../../assets/icons/account-un-draw.svg';
 
 const useAccount = () => {
   const navigate = useNavigate();
@@ -54,7 +54,7 @@ export const Account = () => {
         </CardContent>
       </Card>
 
-      <img src={AccountIcon} alt='Banner Not Found' className='w-3/4 max-w-[448px] aspect-[448/255]' />
+      <Icon type='account' className='w-3/4 max-w-[448px] h-fit' />
     </section>
   );
 };

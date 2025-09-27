@@ -1,4 +1,4 @@
-import BannerIcon from '../../assets/icons/farm-un-draw.svg';
+import { Icon } from '@/components';
 
 export const Home = () => {
   return (
@@ -8,7 +8,7 @@ export const Home = () => {
         lugar!
       </h1>
 
-      <img src={BannerIcon} alt='Banner' className='w-3/4 max-w-[448px] aspect-[64/51]' />
+      <Icon type='farm' className='w-3/4 max-w-[448px] h-fit' />
     </section>
   );
 };

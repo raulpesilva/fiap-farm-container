@@ -1,6 +1,6 @@
 import { useFarmSelect, useTokenSelect } from '@/states';
 import { Link } from 'react-router-dom';
-import LogoIcon from '../../assets/icons/logo.svg';
+import { Icon } from '../Icon';
 
 export const Logo = () => {
   const token = useTokenSelect();
@@ -10,7 +10,7 @@ export const Logo = () => {
 
   return (
     <Link to={link} className='flex order-0 items-center justify-center p-0 w-32 sm:w-40 md:w-44'>
-      <img src={LogoIcon} alt='Logo Farm Fiap' className='w-full aspect-[176/39]' />
+      <Icon type='logo' className='w-full h-fit aspect-[176/39]' />
     </Link>
   );
 };
