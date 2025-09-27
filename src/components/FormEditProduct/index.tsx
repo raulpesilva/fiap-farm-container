@@ -188,7 +188,14 @@ export const FormEditProduct = ({ id }: FormEditProductProps) => {
                 onClick={(e) => handleUpdateProduct(e)}
                 disabled={loading}
               >
-                {loading ? <LoaderCircle className='animate-spin' /> : 'Salvar alterações'}
+                {loading ? (
+                  <LoaderCircle className='animate-spin' />
+                ) : (
+                  <>
+                    <Icon type='edit' />
+                    Salvar alterações
+                  </>
+                )}
               </Button>
             )}
 
@@ -200,7 +207,14 @@ export const FormEditProduct = ({ id }: FormEditProductProps) => {
                 onClick={(e) => handleDeleteProduct(e)}
                 disabled={loading}
               >
-                {loading ? <LoaderCircle className='animate-spin' /> : 'Excluir produto'}
+                {loading ? (
+                  <LoaderCircle className='animate-spin' />
+                ) : (
+                  <>
+                    <Icon type='trash' />
+                    Excluir produto
+                  </>
+                )}
               </Button>
             )}
           </div>
