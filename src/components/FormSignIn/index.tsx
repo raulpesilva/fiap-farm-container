@@ -62,7 +62,7 @@ export function FormSignIn({ className, ...props }: React.ComponentProps<'div'>)
         <CardContent>
           <form>
             <div className='flex flex-col gap-6'>
-              <div className='grid gap-3'>
+              <div className='grid gap-2'>
                 <Label htmlFor='email'>E-mail</Label>
                 <Input
                   id='email'
@@ -72,7 +72,7 @@ export function FormSignIn({ className, ...props }: React.ComponentProps<'div'>)
                   value={email}
                 />
               </div>
-              <div className='grid gap-3'>
+              <div className='grid gap-2'>
                 <Label htmlFor='password'>Senha</Label>
                 <Input
                   id='password'
