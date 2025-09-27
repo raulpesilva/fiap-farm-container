@@ -1,11 +1,12 @@
-import { EmptyState } from '@/components';
+import { EmptyState, ProductCard } from '@/components';
+import { Button } from '@/components/ui/button';
 import { getProducts } from '@/services';
 import { dispatchProducts, useProductsSelect } from '@/states';
 import { useEffect, useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export const Products = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const products = useProductsSelect();
   const [loading, setLoading] = useState(products?.length === 0);
 
@@ -38,6 +39,19 @@ export const Products = () => {
           buttonText='Cadastrar produto'
           navigateTo='/produtos/cadastro'
         />
+      )}
+
+      {!loading && !!products?.length && (
+        <>
+          <Button className='cursor-pointer duration-300' onClick={() => navigate('/produtos/cadastro')}>
+            Cadastrar produto
+          </Button>
+          <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
+            {products.map((p) => (
+              <ProductCard key={p.id} id={p.id} name={p.name} icon={p.icon} color={p.color} />
+            ))}
+          </div>
+        </>
       )}
     </section>
   );

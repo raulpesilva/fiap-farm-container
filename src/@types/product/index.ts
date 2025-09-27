@@ -1,3 +1,14 @@
+import AppleIcon from '../../assets/icons/apple.svg?react';
+import BananaIcon from '../../assets/icons/banana.svg?react';
+import CarrotIcon from '../../assets/icons/carrot.svg?react';
+import CherryIcon from '../../assets/icons/cherry.svg?react';
+import CitrusIcon from '../../assets/icons/citrus.svg?react';
+import GrapeIcon from '../../assets/icons/grape.svg?react';
+import LeafyIcon from '../../assets/icons/leafy.svg?react';
+import LogoIcon from '../../assets/icons/logo.svg?react';
+import SproutIcon from '../../assets/icons/sprout.svg?react';
+import VeganIcon from '../../assets/icons/vegan.svg?react';
+
 export interface ProductItem {
   id: number;
   farm_id: number;
@@ -9,16 +20,16 @@ export interface ProductItem {
 }
 
 export const ICON_MAP = {
-  apple: '../../assets/icons/apple.svg',
-  banana: '../../assets/icons/banana.svg',
-  carrot: '../../assets/icons/carrot.svg',
-  cherry: '../../assets/icons/cherry.svg',
-  citrus: '../../assets/icons/citrus.svg',
-  grape: '../../assets/icons/grape.svg',
-  leafy: '../../assets/icons/leafy.svg',
-  logo: '../../assets/icons/logo.svg',
-  sprout: '../../assets/icons/sprout.svg',
-  vegan: '../../assets/icons/vegan.svg',
+  apple: AppleIcon,
+  banana: BananaIcon,
+  carrot: CarrotIcon,
+  cherry: CherryIcon,
+  citrus: CitrusIcon,
+  grape: GrapeIcon,
+  leafy: LeafyIcon,
+  logo: LogoIcon,
+  sprout: SproutIcon,
+  vegan: VeganIcon,
 };
 
 export const COLOR_MAP: Record<string, string> = {
