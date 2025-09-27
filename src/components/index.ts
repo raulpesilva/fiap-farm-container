@@ -1,5 +1,6 @@
 export * from './EmptyState';
 export * from './Footer';
+export * from './FormAddProduct';
 export * from './FormSignIn';
 export * from './FormSignUp';
 export * from './Icon';

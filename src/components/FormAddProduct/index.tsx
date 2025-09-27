@@ -1,0 +1,149 @@
+import { COLORS_PRODUCT, ICONS_PRODUCT, type ColorOptionSelect, type IconOptionSelect } from '@/@types/product';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { addProduct } from '@/services';
+import { LoaderCircle } from 'lucide-react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Icon } from '../Icon';
+
+const useFormAddProduct = () => {
+  const navigate = useNavigate();
+  const [name, setName] = useState('');
+  const [icon, setIcon] = useState<IconOptionSelect | undefined>();
+  const [color, setColor] = useState<ColorOptionSelect | undefined>();
+  const [error, setError] = useState({ name: '', icon: '', color: '' });
+  const [loading, setLoading] = useState(false);
+
+  const handleCreateProduct = async () => {
+    try {
+      setLoading(true);
+      setError({ name: '', icon: '', color: '' });
+
+      const iconElem = icon?.icon;
+      const colorElem = color?.type;
+      if (!name) setError((prev) => ({ ...prev, name: 'Digite o nome' }));
+      if (!iconElem) setError((prev) => ({ ...prev, icon: 'Selecione um ícone' }));
+      if (!colorElem) setError((prev) => ({ ...prev, color: 'Selecione uma cor' }));
+      if (!name || !iconElem || !colorElem) return;
+
+      await addProduct({ name, icon: iconElem, color: colorElem });
+
+      setName('');
+      setIcon(undefined);
+      setColor(undefined);
+
+      const canGoBack = window.history.state && window.history.state.idx > 0;
+      if (canGoBack) navigate(-1);
+      else navigate('/produtos');
+    } catch (error: any) {
+      console.log('Error creating product:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const onChange = (setValue: React.Dispatch<React.SetStateAction<string>>, value: string) => {
+    setValue(value);
+    setError({ name: '', icon: '', color: '' });
+  };
+
+  return { name, icon, color, error, loading, setName, setIcon, setColor, handleCreateProduct, onChange };
+};
+
+export function FormAddProduct() {
+  const { name, icon, color, error, loading, setName, setIcon, setColor, handleCreateProduct, onChange } =
+    useFormAddProduct();
+
+  return (
+    <Card className='w-full max-w-xl'>
+      <CardContent>
+        <form>
+          <div className='flex flex-col gap-6'>
+            <div className='grid gap-2'>
+              <Label htmlFor='name'>Nome do produto</Label>
+              <Input
+                id='name'
+                type='text'
+                placeholder='Digite o nome'
+                onChange={(e) => onChange(setName, e.target.value)}
+                value={name}
+              />
+              {error.name && <p className='text-sm text-error'>{error.name}</p>}
+            </div>
+
+            <div className='grid gap-2'>
+              <Label htmlFor='icon'>Ícone</Label>
+              <Select
+                value={icon?.displayName}
+                onValueChange={(value) => {
+                  const selectedIcon = ICONS_PRODUCT.find((icon) => icon.displayName === value);
+                  setIcon(selectedIcon);
+                }}
+              >
+                <SelectTrigger className='w-full cursor-pointer'>
+                  <SelectValue placeholder='Selecione um ícone' />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    {ICONS_PRODUCT.map((icon) => (
+                      <SelectItem key={icon.type} value={icon.displayName} className='duration-300'>
+                        <Icon type={icon.icon!} className='inline-block mr-2' />
+                        {icon.displayName}
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+              {error.icon && <p className='text-sm text-error'>{error.icon}</p>}
+            </div>
+
+            <div className='grid gap-2'>
+              <Label htmlFor='color'>Cor</Label>
+              <Select
+                value={color?.displayName}
+                onValueChange={(value) => {
+                  const selectedColor = COLORS_PRODUCT.find((color) => color.displayName === value);
+                  setColor(selectedColor);
+                }}
+              >
+                <SelectTrigger className='w-full cursor-pointer'>
+                  <SelectValue placeholder='Selecione uma cor' />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    {COLORS_PRODUCT.map((color) => (
+                      <SelectItem key={color.type} value={color.displayName} className='duration-300'>
+                        <span
+                          className='inline-block mr-2 w-4 h-4 rounded-full'
+                          style={{ backgroundColor: color.color }}
+                        />
+                        {color.displayName}
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+              {error.color && <p className='text-sm text-error'>{error.color}</p>}
+            </div>
+
+            <Button
+              type='submit'
+              className='w-full cursor-pointer duration-300'
+              onClick={(e) => {
+                e.preventDefault();
+                handleCreateProduct();
+              }}
+              disabled={loading}
+            >
+              {loading ? <LoaderCircle className='animate-spin' /> : 'Cadastrar produto'}
+            </Button>
+          </div>
+        </form>
+      </CardContent>
+    </Card>
+  );
+}
