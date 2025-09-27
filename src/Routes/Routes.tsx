@@ -3,6 +3,7 @@ import { AddFarmLayout, AppLayout, MainLayout, PublicLayout } from '../layouts';
 import {
   Account,
   AddFarm,
+  AddProduct,
   Goals,
   Home,
   Login,
@@ -54,6 +55,7 @@ export const AppRoutes = () => {
             <Route path='/vendas' element={<Sales />} />
             <Route path='/metas' element={<Goals />} />
             <Route path='/produtos' element={<Products />} />
+            <Route path='/produtos/cadastro' element={<AddProduct />} />
             <Route path='/notificacoes' element={<Notifications />} />
             <Route path='/minha-conta' element={<Account />} />
 
