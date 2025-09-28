@@ -16,7 +16,7 @@ const MenuItem = ({ name, link }: MenuItemProps) => {
   const formattedPathname = pathname.toLowerCase();
   const formattedName = name.toLowerCase();
 
-  const isActive = (link === '/' && pathname === '/') || (link !== '/' && formattedPathname.includes(formattedName));
+  const isActive = (link === '/' && pathname === '/') || formattedPathname.includes(formattedName);
 
   return (
     <NavigationMenuItem>
