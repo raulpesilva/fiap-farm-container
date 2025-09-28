@@ -3,14 +3,14 @@ import { Button } from '@/components/ui/button';
 import { useWebSocket } from '@/hooks';
 import { useNotificationsSelect } from '@/states';
 import { Bell } from 'lucide-react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useMatch } from 'react-router-dom';
 
 export const AppLayout = () => {
   useWebSocket();
-  const { pathname } = useLocation();
   const notifications = useNotificationsSelect();
+  const isNotification = useMatch('/notificacoes*');
+  const isMyAccount = useMatch('/minha-conta*');
 
-  const formattedPathname = pathname.toLowerCase();
   const unreadNotificationsCount = notifications?.filter((notification) => !notification.read).length;
 
   return (
@@ -23,12 +23,12 @@ export const AppLayout = () => {
 
           <div className='flex order-3 gap-2 md:gap-4'>
             <Button
-              variant={formattedPathname === '/notificacoes' ? 'default' : 'outline'}
+              variant={isNotification ? 'default' : 'outline'}
               size='icon'
-              className='size-9 cursor-pointer duration-300'
+              className='size-9 cursor-pointer duration-300 relative'
               asChild
             >
-              <Link to='/notificacoes' className='relative'>
+              <Link to='/notificacoes'>
                 <Bell />
                 {unreadNotificationsCount > 0 && (
                   <div className='w-6 h-6 flex items-center justify-center bg-primary rounded-2xl absolute -top-2 -right-2'>
@@ -39,7 +39,7 @@ export const AppLayout = () => {
             </Button>
 
             <Button
-              variant={formattedPathname === '/minha-conta' ? 'default' : 'outline'}
+              variant={isMyAccount ? 'default' : 'outline'}
               className='cursor-pointer duration-300 font-medium text-base min-w-32'
               asChild
             >
