@@ -3,6 +3,7 @@ import { AddFarmLayout, AppLayout, GoalsLayout, MainLayout, ProductLayout, Publi
 import {
   Account,
   AddFarm,
+  AddGoal,
   AddProduct,
   EditProduct,
   Goals,
@@ -56,7 +57,7 @@ export const AppRoutes = () => {
             <Route path='/vendas' element={<Sales />} />
             <Route path='/metas' element={<GoalsLayout />}>
               <Route index element={<Goals />} />
-              <Route path='cadastro' element={<Goals />} />
+              <Route path='cadastro' element={<AddGoal />} />
             </Route>
             <Route path='/produtos' element={<ProductLayout />}>
               <Route index element={<Products />} />

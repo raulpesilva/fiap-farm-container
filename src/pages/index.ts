@@ -1,5 +1,6 @@
 export * from './Account';
 export * from './AddFarm';
+export * from './AddGoal';
 export * from './AddProduct';
 export * from './EditProduct';
 export * from './Goals';
