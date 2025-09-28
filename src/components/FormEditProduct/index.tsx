@@ -21,10 +21,8 @@ const useFormEditProduct = (id: number) => {
   const products = useProductsSelect();
 
   const product = useMemo(() => {
-    if (!id) return null;
-    const product = products.find((product) => product.id === id);
-    if (!product) return null;
-    return product;
+    if (!id || !products?.length) return null;
+    return products.find((p) => p.id === id) || null;
   }, [id, products]);
 
   const [name, setName] = useState(product?.name ?? '');

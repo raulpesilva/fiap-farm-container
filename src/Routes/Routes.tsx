@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { AddFarmLayout, AppLayout, MainLayout, PublicLayout } from '../layouts';
+import { AddFarmLayout, AppLayout, MainLayout, ProductLayout, PublicLayout } from '../layouts';
 import {
   Account,
   AddFarm,
@@ -55,9 +55,11 @@ export const AppRoutes = () => {
             <Route path='/' element={<Stocks />} />
             <Route path='/vendas' element={<Sales />} />
             <Route path='/metas' element={<Goals />} />
-            <Route path='/produtos' element={<Products />} />
-            <Route path='/produtos/cadastro' element={<AddProduct />} />
-            <Route path='/produtos/:idProduct' element={<EditProduct />} />
+            <Route path='/produtos' element={<ProductLayout />}>
+              <Route index element={<Products />} />
+              <Route path='cadastro' element={<AddProduct />} />
+              <Route path=':idProduct' element={<EditProduct />} />
+            </Route>
             <Route path='/notificacoes' element={<Notifications />} />
             <Route path='/minha-conta' element={<Account />} />
 
