@@ -5,4 +5,5 @@ export * from './MainLayout';
 export * from './ProductLayout';
 export * from './PublicLayout';
 export * from './SalesLayout';
+export * from './StockLayout';
 

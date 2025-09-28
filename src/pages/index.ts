@@ -3,6 +3,7 @@ export * from './AddFarm';
 export * from './AddGoal';
 export * from './AddProduct';
 export * from './AddSale';
+export * from './AddStock';
 export * from './EditProduct';
 export * from './Goals';
 export * from './Home';

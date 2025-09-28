@@ -14,6 +14,7 @@ import {
   AddGoal,
   AddProduct,
   AddSale,
+  AddStock,
   EditProduct,
   Goals,
   Home,
@@ -62,7 +63,10 @@ export const AppRoutes = () => {
         {/* Usuário logado com fazenda */}
         {!!token && !!farm && (
           <Route element={<AppLayout />}>
-            <Route path='/' element={<Stocks />} />
+            <Route path='/'>
+              <Route index element={<Stocks />} />
+              <Route path='adicionar-estoque' element={<AddStock />} />
+            </Route>
             <Route path='/vendas' element={<SalesLayout />}>
               <Route index element={<Sales />} />
               <Route path='cadastro' element={<AddSale />} />
