@@ -1,5 +1,7 @@
 export * from './AddFarmLayout';
 export * from './AppLayout';
+export * from './GoalsLayout';
 export * from './MainLayout';
-export * from './PublicLayout';
 export * from './ProductLayout';
+export * from './PublicLayout';
+
