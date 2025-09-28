@@ -1,10 +1,19 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { AddFarmLayout, AppLayout, GoalsLayout, MainLayout, ProductLayout, PublicLayout } from '../layouts';
+import {
+  AddFarmLayout,
+  AppLayout,
+  GoalsLayout,
+  MainLayout,
+  ProductLayout,
+  PublicLayout,
+  SalesLayout,
+} from '../layouts';
 import {
   Account,
   AddFarm,
   AddGoal,
   AddProduct,
+  AddSale,
   EditProduct,
   Goals,
   Home,
@@ -54,7 +63,10 @@ export const AppRoutes = () => {
         {!!token && !!farm && (
           <Route element={<AppLayout />}>
             <Route path='/' element={<Stocks />} />
-            <Route path='/vendas' element={<Sales />} />
+            <Route path='/vendas' element={<SalesLayout />}>
+              <Route index element={<Sales />} />
+              <Route path='cadastro' element={<AddSale />} />
+            </Route>
             <Route path='/metas' element={<GoalsLayout />}>
               <Route index element={<Goals />} />
               <Route path='cadastro' element={<AddGoal />} />

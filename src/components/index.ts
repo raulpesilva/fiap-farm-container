@@ -11,4 +11,5 @@ export * from './NavigateMenu';
 export * from './NotificationCard';
 export * from './ProductCard';
 export * from './ProductTabs';
+export * from './SaleCard';
 
