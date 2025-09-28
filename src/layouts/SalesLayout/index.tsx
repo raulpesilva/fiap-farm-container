@@ -25,7 +25,7 @@ export const SalesLayout = () => {
   if (loading && !sales?.length) {
     return (
       <div className='w-full h-full flex items-center justify-center'>
-        <span className='text-sm text-muted-foreground text-center'>Carregando metas...</span>
+        <span className='text-sm text-muted-foreground text-center'>Carregando dados...</span>
       </div>
     );
   }
