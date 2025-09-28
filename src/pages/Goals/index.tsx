@@ -2,10 +2,9 @@ import { EmptyState } from '@/components';
 import { GoalCard } from '@/components/GoalCard';
 import { Button } from '@/components/ui/button';
 import { useGoalsSelect } from '@/states';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const Goals = () => {
-  const navigate = useNavigate();
   const goals = useGoalsSelect();
 
   return (
@@ -22,8 +21,8 @@ export const Goals = () => {
 
       {!!goals?.length && (
         <>
-          <Button className='cursor-pointer duration-300' onClick={() => navigate('/metas/cadastro')}>
-            Cadastrar meta
+          <Button className='cursor-pointer duration-300' asChild>
+            <Link to='/metas/cadastro'>Cadastrar meta</Link>
           </Button>
           <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
             {goals.map((g) => (
