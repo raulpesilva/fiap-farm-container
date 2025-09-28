@@ -9,3 +9,4 @@ export * from './Logo';
 export * from './NavigateMenu';
 export * from './NotificationCard';
 export * from './ProductCard';
+export * from './ProductTabs';

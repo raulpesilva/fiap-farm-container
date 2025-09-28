@@ -5,8 +5,9 @@ import { LoaderCircle } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Icon } from '../Icon';
+import { ProductTabs } from '../ProductTabs';
 import { Button } from '../ui/button';
-import { Card, CardContent } from '../ui/card';
+import { Card, CardContent, CardFooter } from '../ui/card';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
@@ -112,7 +113,7 @@ export const FormEditProduct = ({ id }: FormEditProductProps) => {
   } = useFormEditProduct(id);
 
   return (
-    <Card className='w-full max-w-xl'>
+    <Card className='w-full max-w-xl gap-12'>
       <CardContent>
         <form>
           <div className='flex flex-col gap-6'>
@@ -220,6 +221,10 @@ export const FormEditProduct = ({ id }: FormEditProductProps) => {
           </div>
         </form>
       </CardContent>
+
+      <CardFooter>
+        <ProductTabs />
+      </CardFooter>
     </Card>
   );
 };
