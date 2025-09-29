@@ -45,7 +45,7 @@ export const StocksChartArea = () => {
   }, {} as Record<string, { label: string; color: string }>);
 
   return (
-    <Card className='w-full flex flex-col gap-0'>
+    <Card className='w-full flex flex-col gap-4'>
       <CardHeader className='justify-center'>
         <CardTitle className='text-wrap leading-5'>Estoque por produto ao longo do tempo</CardTitle>
       </CardHeader>
@@ -87,7 +87,7 @@ export const StocksChartArea = () => {
 
             <ChartLegend
               content={({ payload }) => (
-                <div className='flex flex-col gap-2'>
+                <div className='grid grid-cols-2 gap-2 mt-4'>
                   {payload?.map((entry: any, index: number) => (
                     <div key={`legend-${index}`} className='flex items-center gap-2'>
                       <span className='w-3 h-3 rounded-full' style={{ backgroundColor: entry.color }} />
