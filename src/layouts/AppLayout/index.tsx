@@ -8,8 +8,8 @@ import { Link, Outlet, useMatch } from 'react-router-dom';
 export const AppLayout = () => {
   useWebSocket();
   const notifications = useNotificationsSelect();
-  const isNotification = useMatch('/notificacoes*');
-  const isMyAccount = useMatch('/minha-conta*');
+  const isNotification = useMatch('/notificacoes/*');
+  const isMyAccount = useMatch('/minha-conta/*');
 
   const unreadNotificationsCount = notifications?.filter((notification) => !notification.read).length;
 

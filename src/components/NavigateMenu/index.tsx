@@ -39,9 +39,9 @@ export const NavigateMenu = () => {
     <NavigationMenu className='order-4 md:order-1 mx-auto md:mx-0 min-w-full md:min-w-0'>
       <NavigationMenuList>
         <MenuItem name='Estoques' link='/' match={['/', '/adicionar-estoque']} />
-        <MenuItem name='Vendas' link='/vendas' match={['/vendas*']} />
-        <MenuItem name='Metas' link='/metas' match={['/metas*']} />
-        <MenuItem name='Produtos' link='/produtos' match={['/produtos*']} />
+        <MenuItem name='Vendas' link='/vendas' match={['/vendas/*']} />
+        <MenuItem name='Metas' link='/metas' match={['/metas/*']} />
+        <MenuItem name='Produtos' link='/produtos' match={['/produtos/*']} />
       </NavigationMenuList>
     </NavigationMenu>
   );
