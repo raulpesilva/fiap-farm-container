@@ -24,14 +24,14 @@ export const GoalCard = ({ name, measure, type, value, target, product_id }: Goa
   }, [target, value]);
 
   return (
-    <Card className='w-full h-fit p-0'>
-      <CardAction className='w-full'>
+    <Card className='w-full h-auto p-0'>
+      <CardAction className='w-full h-full'>
         <Button
           variant='ghost'
-          className='w-full h-auto justify-start p-0 rounded-xl text-start cursor-pointer duration-300'
+          className='w-full h-full justify-start p-0 rounded-xl text-start cursor-pointer duration-300'
         >
-          <CardContent className='w-full flex gap-4 items-center p-6'>
-            <div className='flex flex-col items-center justify-center gap-4'>
+          <CardContent className='w-full h-full flex gap-4 items-center p-6'>
+            <div className='h-full flex flex-col items-center justify-between gap-4'>
               <div
                 className='w-10 min-w-10 h-10 flex flex-col items-center justify-center rounded-lg bg-background'
                 style={{ color }}
@@ -40,11 +40,11 @@ export const GoalCard = ({ name, measure, type, value, target, product_id }: Goa
               </div>
               <span className='text-xs text-muted-foreground'>{percentageCompleted}%</span>
             </div>
-            <div className='w-full flex flex-col justify-between items-center'>
-              <div className='w-full flex justify-between items-center'>
+            <div className='w-full h-full flex flex-col justify-between items-center'>
+              <div className='w-full flex justify-between items-center gap-4'>
                 <div className='flex flex-col gap-1'>
                   <CardTitle className='text-wrap'>{name}</CardTitle>
-                  <p className='text-sm text-muted-foreground'>
+                  <p className='text-sm text-muted-foreground text-wrap'>
                     {TYPE_GOAL[type]} - {product?.name}
                   </p>
                 </div>
@@ -53,7 +53,7 @@ export const GoalCard = ({ name, measure, type, value, target, product_id }: Goa
                   <p className='text-sm text-muted-foreground'>{MEASURE_GOAL[measure]}</p>
                 </div>
               </div>
-              <div className='w-full h-2 bg-muted rounded-full mt-4'>
+              <div className='w-full h-2 bg-muted rounded-full mt-4 mb-1'>
                 <div
                   className='h-2 rounded-full transition-all duration-500'
                   style={{ width: `${percentageCompleted}%`, backgroundColor: color }}
