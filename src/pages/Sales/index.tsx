@@ -1,4 +1,4 @@
-import { EmptyState, SaleCard } from '@/components';
+import { EmptyState, SaleCard, SalesChart } from '@/components';
 import { Button } from '@/components/ui/button';
 import { useSalesSelect } from '@/states';
 import { Link } from 'react-router-dom';
@@ -23,6 +23,9 @@ export const Sales = () => {
           <Button className='cursor-pointer duration-300' asChild>
             <Link to='/vendas/cadastro'>Cadastrar venda</Link>
           </Button>
+
+          <SalesChart />
+
           <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
             {sales.map((g) => (
               <SaleCard

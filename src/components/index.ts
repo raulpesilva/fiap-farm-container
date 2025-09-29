@@ -13,6 +13,7 @@ export * from './NotificationCard';
 export * from './ProductCard';
 export * from './ProductTabs';
 export * from './SaleCard';
+export * from './SalesChart';
 export * from './StocksCard';
 export * from './StocksChart';
 export * from './StocksChartArea';
