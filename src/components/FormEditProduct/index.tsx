@@ -221,7 +221,7 @@ export const FormEditProduct = ({ id }: FormEditProductProps) => {
       </CardContent>
 
       <CardFooter>
-        <ProductTabs />
+        <ProductTabs productId={id} />
       </CardFooter>
     </Card>
   );

@@ -2,13 +2,17 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '../ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/tabs';
 
+interface ProductTabsProps {
+  productId: number;
+}
+
 const tabItems = [
   { value: 'estoques', label: 'Estoques', path: '/estoques/cadastro' },
   { value: 'metas', label: 'Metas', path: '/metas/cadastro' },
   { value: 'vendas', label: 'Vendas', path: '/vendas/cadastro' },
 ];
 
-export const ProductTabs = () => {
+export const ProductTabs = ({ productId }: ProductTabsProps) => {
   const navigate = useNavigate();
 
   return (
@@ -23,7 +27,10 @@ export const ProductTabs = () => {
 
       {tabItems.map((tab) => (
         <TabsContent key={tab.value} value={tab.value}>
-          <Button onClick={() => navigate(tab.path)} className='w-full cursor-pointer duration-300'>
+          <Button
+            onClick={() => navigate(`${tab.path}?product-id=${productId}`)}
+            className='w-full cursor-pointer duration-300'
+          >
             Cadastrar
           </Button>
         </TabsContent>

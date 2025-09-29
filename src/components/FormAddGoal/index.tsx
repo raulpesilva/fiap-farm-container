@@ -11,12 +11,13 @@ import { formatBRLCurrencyInput, formatBRLCurrencyPayload, maskDecimal, unformat
 import { onlyNumbers } from '@/utils/regex';
 import { LoaderCircle } from 'lucide-react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Icon } from '../Icon';
 import { Tabs, TabsList, TabsTrigger } from '../ui/tabs';
 
-export const useFormAddGoal = () => {
+const useFormAddGoal = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const productsSelect = useProductsSelect();
   const farm = useFarmSelect();
 
@@ -26,8 +27,11 @@ export const useFormAddGoal = () => {
     type: String(product.id),
   }));
 
+  const selectedProductId = searchParams.get('product-id');
+  const selectedProduct = products?.find((product) => product.type === selectedProductId);
+
   const [name, setName] = useState('');
-  const [product, setProduct] = useState<OptionSelect | undefined>(undefined);
+  const [product, setProduct] = useState<OptionSelect | undefined>(selectedProduct || undefined);
   const [target, setTarget] = useState('');
   const [measure, setMeasure] = useState<GoalItem['measure']>('quantity');
   const [type, setType] = useState<GoalItem['type']>('storage');
