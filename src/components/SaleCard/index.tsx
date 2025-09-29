@@ -17,11 +17,11 @@ export const SaleCard = ({ price, quantity, total_price, product_id }: SaleCardP
   const color = COLOR_MAP[product?.color || 'blue'];
 
   return (
-    <Card className='w-full h-fit p-0'>
-      <CardAction className='w-full'>
+    <Card className='w-full h-auto p-0'>
+      <CardAction className='w-full h-full'>
         <Button
           variant='ghost'
-          className='w-full h-auto justify-start p-0 rounded-xl text-start cursor-pointer duration-300'
+          className='w-full h-full justify-start p-0 rounded-xl text-start cursor-pointer duration-300'
         >
           <CardContent className='w-full flex gap-4 items-center p-6'>
             <div
@@ -31,7 +31,7 @@ export const SaleCard = ({ price, quantity, total_price, product_id }: SaleCardP
               <Icon type={product?.icon ?? 'apple'} size={24} />
             </div>
             <div className='flex flex-col gap-1'>
-              <p>{product?.name}</p>
+              <p className='text-wrap'>{product?.name}</p>
               <p className='text-neutral-500'>{formatBRLCurrencyDisplay(price)}/un</p>
             </div>
             <div className='ml-auto flex flex-col items-end gap-1'>
