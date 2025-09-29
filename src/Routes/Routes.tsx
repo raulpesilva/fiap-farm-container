@@ -7,6 +7,7 @@ import {
   ProductLayout,
   PublicLayout,
   SalesLayout,
+  StockLayout,
 } from '../layouts';
 import {
   Account,
@@ -63,7 +64,7 @@ export const AppRoutes = () => {
         {/* Usuário logado com fazenda */}
         {!!token && !!farm && (
           <Route element={<AppLayout />}>
-            <Route path='/'>
+            <Route path='/' element={<StockLayout />}>
               <Route index element={<Stocks />} />
               <Route path='adicionar-estoque' element={<AddStock />} />
             </Route>
