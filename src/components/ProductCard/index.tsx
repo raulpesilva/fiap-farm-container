@@ -10,11 +10,11 @@ export const ProductCard = ({ id, name, icon, color }: ProductCardProps) => {
   const navigate = useNavigate();
 
   return (
-    <Card className='w-full h-fit p-0'>
-      <CardAction className='w-full'>
+    <Card className='w-full h-auto p-0'>
+      <CardAction className='w-full h-full'>
         <Button
           variant='ghost'
-          className='w-full h-auto justify-start p-0 rounded-xl text-start cursor-pointer duration-300'
+          className='w-full h-full justify-start p-0 rounded-xl text-start cursor-pointer duration-300'
           onClick={() => navigate(`/produtos/${id}`)}
         >
           <CardContent className='w-full flex gap-4 items-center p-6'>
