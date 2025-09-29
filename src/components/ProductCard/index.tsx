@@ -24,7 +24,7 @@ export const ProductCard = ({ id, name, icon, color }: ProductCardProps) => {
             >
               <Icon type={icon} size={24} />
             </div>
-            <CardTitle className='text-wrap'>{name}</CardTitle>
+            <CardTitle className='text-wrap leading-5'>{name}</CardTitle>
           </CardContent>
         </Button>
       </CardAction>

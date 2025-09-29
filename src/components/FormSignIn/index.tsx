@@ -57,7 +57,7 @@ export function FormSignIn({ className, ...props }: React.ComponentProps<'div'>)
     <div className={cn('flex flex-col gap-6', className)} {...props}>
       <Card>
         <CardHeader>
-          <CardTitle>Entre na sua conta</CardTitle>
+          <CardTitle className='text-wrap leading-5'>Entre na sua conta</CardTitle>
           <CardDescription>Digite seu e-mail abaixo para acessar sua conta</CardDescription>
         </CardHeader>
         <CardContent>

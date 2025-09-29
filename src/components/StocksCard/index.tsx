@@ -1,7 +1,7 @@
 import { COLOR_MAP, type ProductItem } from '@/@types/product';
 import { Icon } from '../Icon';
 import { Button } from '../ui/button';
-import { Card, CardAction, CardContent } from '../ui/card';
+import { Card, CardAction, CardContent, CardTitle } from '../ui/card';
 
 interface StocksCardProps {
   productName: string;
@@ -15,11 +15,11 @@ interface StocksCardProps {
 export const StocksCard = ({ productName, productIcon, productColor, storage, plant, harvest }: StocksCardProps) => {
   const color = COLOR_MAP[productColor || 'blue'];
   return (
-    <Card className='w-full h-fit p-0'>
-      <CardAction className='w-full'>
+    <Card className='w-full h-auto p-0'>
+      <CardAction className='w-full h-full'>
         <Button
           variant='ghost'
-          className='w-full h-auto justify-start p-0 rounded-xl text-start cursor-pointer duration-300'
+          className='w-full h-full justify-start p-0 rounded-xl text-start cursor-pointer duration-300'
         >
           <CardContent className='w-full flex gap-4 items-center p-6'>
             <div
@@ -29,7 +29,7 @@ export const StocksCard = ({ productName, productIcon, productColor, storage, pl
               <Icon type={productIcon ?? 'apple'} size={24} />
             </div>
             <div className='flex flex-col w-full'>
-              <h2 className='text-lg font-semibold'>{productName}</h2>
+              <CardTitle className='text-wrap leading-5'>{productName}</CardTitle>
               <div className='w-full flex justify-between items-center mt-1'>
                 <div className='flex flex-col gap-1 *:text-sm text-muted-foreground'>
                   <p>Estoque</p>

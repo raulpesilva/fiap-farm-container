@@ -43,7 +43,7 @@ export const GoalCard = ({ name, measure, type, value, target, product_id }: Goa
             <div className='w-full h-full flex flex-col justify-between items-center'>
               <div className='w-full flex justify-between items-center gap-4'>
                 <div className='flex flex-col gap-1'>
-                  <CardTitle className='text-wrap'>{name}</CardTitle>
+                  <CardTitle className='text-wrap leading-5'>{name}</CardTitle>
                   <p className='text-sm text-muted-foreground text-wrap'>
                     {TYPE_GOAL[type]} - {product?.name}
                   </p>

@@ -3,7 +3,7 @@ import { useProductByProductId } from '@/hooks';
 import { formatBRLCurrencyDisplay } from '@/utils';
 import { Icon } from '../Icon';
 import { Button } from '../ui/button';
-import { Card, CardAction, CardContent } from '../ui/card';
+import { Card, CardAction, CardContent, CardTitle } from '../ui/card';
 
 interface SaleCardProps {
   price: number;
@@ -31,7 +31,7 @@ export const SaleCard = ({ price, quantity, total_price, product_id }: SaleCardP
               <Icon type={product?.icon ?? 'apple'} size={24} />
             </div>
             <div className='flex flex-col gap-1'>
-              <p className='text-wrap'>{product?.name}</p>
+              <CardTitle className='text-wrap leading-5'>{product?.name}</CardTitle>
               <p className='text-neutral-500'>{formatBRLCurrencyDisplay(price)}/un</p>
             </div>
             <div className='ml-auto flex flex-col items-end gap-1'>

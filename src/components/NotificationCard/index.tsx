@@ -34,7 +34,7 @@ export const NotificationCard = ({ id, type, title, message, read }: Notificatio
             </div>
 
             <div className='flex flex-col gap-1'>
-              <CardTitle className='text-wrap'>{title}</CardTitle>
+              <CardTitle className='text-wrap leading-5'>{title}</CardTitle>
               <CardDescription className='text-wrap'>{message}</CardDescription>
             </div>
 

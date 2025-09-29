@@ -30,7 +30,7 @@ export const Account = () => {
     <section className='w-full max-w-[1232px] h-full flex flex-col items-center justify-center gap-8 px-4 mx-auto'>
       <Card className='w-fit flex-col md:flex-row! gap-0'>
         <CardContent className='flex flex-col flex-1 min-w-fit'>
-          <CardTitle>Minha conta</CardTitle>
+          <CardTitle className='text-wrap leading-5'>Minha conta</CardTitle>
           <CardDescription className='mt-4'>Seja bem-vindo, {`${user?.name || user?.email}`}!</CardDescription>
           <CardDescription>Página em desenvolvimento. Em breve, novidades por aqui!</CardDescription>
         </CardContent>
