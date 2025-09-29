@@ -5,6 +5,7 @@ export * from './FormAddProduct';
 export * from './FormEditProduct';
 export * from './FormSignIn';
 export * from './FormSignUp';
+export * from './GoalCard';
 export * from './Icon';
 export * from './Logo';
 export * from './NavigateMenu';
@@ -12,4 +13,7 @@ export * from './NotificationCard';
 export * from './ProductCard';
 export * from './ProductTabs';
 export * from './SaleCard';
-
+export * from './StocksCard';
+export * from './StocksChart';
+export * from './StocksChartArea';
+export * from './StocksChartPie';

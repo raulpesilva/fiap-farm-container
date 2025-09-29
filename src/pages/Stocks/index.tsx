@@ -1,5 +1,4 @@
-import { EmptyState } from '@/components';
-import { StocksCard } from '@/components/StocksCard';
+import { EmptyState, StocksCard, StocksChart } from '@/components';
 import { Button } from '@/components/ui/button';
 import { useProductsSelect, useTransactionsSelect } from '@/states';
 import { groupByStock } from '@/utils';
@@ -33,6 +32,9 @@ export const Stocks = () => {
           <Button className='cursor-pointer duration-300' asChild>
             <Link to='/adicionar-estoque'>Cadastrar estoque</Link>
           </Button>
+
+          <StocksChart />
+
           <div className='w-full grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-3'>
             {group.map((item) => (
               <StocksCard

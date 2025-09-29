@@ -1,5 +1,4 @@
-import { EmptyState } from '@/components';
-import { GoalCard } from '@/components/GoalCard';
+import { EmptyState, GoalCard } from '@/components';
 import { Button } from '@/components/ui/button';
 import { useGoalsSelect } from '@/states';
 import { Link } from 'react-router-dom';
