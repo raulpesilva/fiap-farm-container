@@ -188,9 +188,9 @@ export function FormAddGoal() {
             </div>
 
             <div className='grid gap-2'>
-              <Label htmlFor='name'>Digite o objetivo</Label>
+              <Label htmlFor='objective'>Digite o objetivo</Label>
               <Input
-                id='name'
+                id='objective'
                 type='text'
                 placeholder='Digite o objetivo'
                 onChange={(e) => {
