@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { addGoal } from '@/services';
 import { useFarmSelect, useProductsSelect } from '@/states';
 import { formatBRLCurrencyInput, formatBRLCurrencyPayload, maskDecimal, unformatBRLCurrencyInput } from '@/utils';
@@ -12,7 +11,7 @@ import { onlyNumbers } from '@/utils/regex';
 import { LoaderCircle } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { Icon } from '../Icon';
+import { SelectProduct } from '../SelectProduct';
 import { Tabs, TabsList, TabsTrigger } from '../ui/tabs';
 
 const useFormAddGoal = () => {
@@ -137,31 +136,8 @@ export function FormAddGoal() {
               {error.name && <p className='text-sm text-error'>{error.name}</p>}
             </div>
 
-            <div className='grid gap-2'>
-              <Label htmlFor='icon'>Selecione o produto</Label>
-              <Select
-                value={product?.displayName || ''}
-                onValueChange={(value) => {
-                  const selectedProduct = products.find((product) => product.displayName === value);
-                  setProduct(selectedProduct);
-                }}
-              >
-                <SelectTrigger className='w-full cursor-pointer'>
-                  <SelectValue placeholder='Selecione um produto' />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    {products.map((product) => (
-                      <SelectItem key={product.type} value={product.displayName} className='duration-300'>
-                        <Icon type={product.icon!} className='inline-block mr-2' />
-                        {product.displayName}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-              {error.product && <p className='text-sm text-error'>{error.product}</p>}
-            </div>
+            <SelectProduct products={products} product={product} setProduct={setProduct} error={error.product} />
+
             <div className='grid gap-2'>
               <Tabs
                 defaultValue='quantity'
@@ -182,6 +158,7 @@ export function FormAddGoal() {
                 </TabsList>
               </Tabs>
             </div>
+
             <div className='grid gap-2'>
               <Tabs
                 defaultValue='storage'
