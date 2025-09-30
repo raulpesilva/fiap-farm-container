@@ -82,6 +82,7 @@ export const StocksChartArea = () => {
                 type='natural'
                 fill={`url(#fill-${p.id})`}
                 stroke={COLOR_MAP[p.color || 'blue']}
+                animationDuration={1500}
               />
             ))}
 

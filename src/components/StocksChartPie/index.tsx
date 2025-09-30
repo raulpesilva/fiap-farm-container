@@ -49,7 +49,14 @@ export const StocksChartPie = () => {
       <CardContent>
         <ChartContainer config={chartConfig} className='mx-auto aspect-square max-h-[320px]'>
           <PieChart>
-            <Pie data={chartData} dataKey='stock' nameKey='product' innerRadius={56} strokeWidth={5} />
+            <Pie
+              data={chartData}
+              dataKey='stock'
+              nameKey='product'
+              innerRadius={56}
+              strokeWidth={5}
+              animationDuration={1500}
+            />
             <ChartLegend
               content={({ payload }) => (
                 <div className='flex flex-col items-center gap-2'>

@@ -32,22 +32,22 @@ export const SalesChart = () => {
   }, {} as Record<string, { label: string; color: string }>);
 
   return (
-    <Card className='w-full flex flex-col gap-0'>
+    <Card className='w-full flex flex-col gap-4'>
       <CardHeader className='justify-center'>
         <CardTitle className='text-wrap leading-5'>Vendas por produto</CardTitle>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig} className='aspect-auto h-[320px] w-full'>
-          <BarChart data={salesByProduct} barSize={24} barCategoryGap={48}>
+          <BarChart data={salesByProduct} barSize={16} barCategoryGap={32}>
             <CartesianGrid vertical={false} />
             <XAxis dataKey='name' axisLine={false} tickLine={false} />
-            <YAxis axisLine={false} tickLine={false} tickFormatter={formatBRLCurrencyDisplay} width={80} />
+            <YAxis axisLine={false} tickLine={false} tickFormatter={formatBRLCurrencyDisplay} width={112} />
             <ChartTooltip
               content={
                 <ChartTooltipContent indicator='dot' formatter={(value) => formatBRLCurrencyDisplay(Number(value))} />
               }
             />
-            <Bar dataKey='value' radius={[8, 8, 0, 0]}>
+            <Bar dataKey='value' radius={[8, 8, 0, 0]} animationDuration={1500}>
               {salesByProduct.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.color} />
               ))}
