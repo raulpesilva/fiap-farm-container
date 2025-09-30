@@ -1,5 +1,3 @@
-'use client';
-
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { Label } from '@/components/ui/label';
@@ -21,9 +19,9 @@ export const DatePicker = ({ date, setDate, error }: DatePickerProps) => {
       <Label htmlFor='date'>Selecione uma data</Label>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
-          <Button variant='outline' id='date' className='w-full justify-between'>
-            {date ? date.toLocaleDateString() : 'Select date'}
-            <ChevronDownIcon className='text-muted-foreground opacity-50'  />
+          <Button variant='outline' id='date' className='w-full justify-between cursor-pointer duration-300'>
+            {date ? date.toLocaleDateString() : 'Selecione uma data'}
+            <ChevronDownIcon className='text-muted-foreground opacity-50' />
           </Button>
         </PopoverTrigger>
         <PopoverContent className='w-auto overflow-hidden p-0' align='start'>
