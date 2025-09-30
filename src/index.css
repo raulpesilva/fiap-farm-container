@@ -42,28 +42,6 @@
   --color-error: var(--error);
 }
 
-@layer base {
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
-  }
-
-  *::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  *::-webkit-scrollbar-track {
-    background: var(--color-scrollbar-track);
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: var(--color-scrollbar-thumb);
-    border-radius: 9999px;
-    border: 2px solid var(--color-scrollbar-track);
-  }
-}
-
 :root {
   --color-scrollbar-thumb: #178fff;
   --color-scrollbar-track: #f6f6f5;
@@ -149,9 +127,40 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
   }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--color-scrollbar-track);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--color-scrollbar-thumb);
+    border-radius: 9999px;
+    border: 2px solid var(--color-scrollbar-track);
+  }
+
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Remove as setinhas do input number no Chrome, Safari, Edge e Opera */
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Remove as setinhas no Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
   }
 }
 
