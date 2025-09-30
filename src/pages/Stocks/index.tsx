@@ -23,14 +23,14 @@ export const Stocks = () => {
         <EmptyState
           text='Vocês ainda não cadastrou nenhum estoque?'
           buttonText='Cadastrar estoque'
-          navigateTo='/adicionar-estoque'
+          navigateTo='/estoques-cadastro'
         />
       )}
 
       {!!group?.length && (
         <>
           <Button className='cursor-pointer duration-300' asChild>
-            <Link to='/adicionar-estoque'>Cadastrar estoque</Link>
+            <Link to='/estoques-cadastro'>Cadastrar estoque</Link>
           </Button>
 
           <StocksChart />

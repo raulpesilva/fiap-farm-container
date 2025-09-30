@@ -66,7 +66,7 @@ export const AppRoutes = () => {
           <Route element={<AppLayout />}>
             <Route path='/' element={<StockLayout />}>
               <Route index element={<Stocks />} />
-              <Route path='adicionar-estoque' element={<AddStock />} />
+              <Route path='estoques-cadastro' element={<AddStock />} />
             </Route>
             <Route path='/vendas' element={<SalesLayout />}>
               <Route index element={<Sales />} />
