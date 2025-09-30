@@ -1,14 +1,14 @@
-import { COLORS_PRODUCT, ICONS_PRODUCT, type ColorOptionSelect, type IconOptionSelect } from '@/@types/product';
+import { type ColorOptionSelect, type IconOptionSelect } from '@/@types/product';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { addProduct } from '@/services';
 import { LoaderCircle } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Icon } from '../Icon';
+import { SelectColor } from '../SelectColor';
+import { SelectIcon } from '../SelectIcon';
 
 const useFormAddProduct = () => {
   const navigate = useNavigate();
@@ -76,60 +76,9 @@ export function FormAddProduct() {
               {error.name && <p className='text-sm text-error'>{error.name}</p>}
             </div>
 
-            <div className='grid gap-2'>
-              <Label htmlFor='icon'>Ícone</Label>
-              <Select
-                value={icon?.displayName}
-                onValueChange={(value) => {
-                  const selectedIcon = ICONS_PRODUCT.find((icon) => icon.displayName === value);
-                  setIcon(selectedIcon);
-                }}
-              >
-                <SelectTrigger className='w-full cursor-pointer'>
-                  <SelectValue placeholder='Selecione um ícone' />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    {ICONS_PRODUCT.map((icon) => (
-                      <SelectItem key={icon.type} value={icon.displayName} className='duration-300'>
-                        <Icon type={icon.icon!} className='inline-block mr-2' />
-                        {icon.displayName}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-              {error.icon && <p className='text-sm text-error'>{error.icon}</p>}
-            </div>
+            <SelectIcon icon={icon} setIcon={setIcon} error={error.icon} />
 
-            <div className='grid gap-2'>
-              <Label htmlFor='color'>Cor</Label>
-              <Select
-                value={color?.displayName}
-                onValueChange={(value) => {
-                  const selectedColor = COLORS_PRODUCT.find((color) => color.displayName === value);
-                  setColor(selectedColor);
-                }}
-              >
-                <SelectTrigger className='w-full cursor-pointer'>
-                  <SelectValue placeholder='Selecione uma cor' />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    {COLORS_PRODUCT.map((color) => (
-                      <SelectItem key={color.type} value={color.displayName} className='duration-300'>
-                        <span
-                          className='inline-block mr-2 w-4 h-4 rounded-full'
-                          style={{ backgroundColor: color.color }}
-                        />
-                        {color.displayName}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-              {error.color && <p className='text-sm text-error'>{error.color}</p>}
-            </div>
+            <SelectColor color={color} setColor={setColor} error={error.color} />
 
             <Button
               type='submit'
