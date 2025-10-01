@@ -29,7 +29,11 @@ export const SelectProduct = ({ products, product, setProduct, error }: SelectPr
         <SelectContent>
           <SelectGroup>
             {products.map((product) => (
-              <SelectItem key={product.type} value={product.displayName} className='duration-300'>
+              <SelectItem
+                key={product.type}
+                value={product.displayName}
+                className='cursor-pointer transition-colors duration-300'
+              >
                 <Icon type={product.icon!} className='inline-block mr-2' />
                 {product.displayName}
               </SelectItem>
