@@ -7,7 +7,7 @@ interface ProductTabsProps {
 }
 
 const tabItems = [
-  { value: 'estoques', label: 'Estoques', path: '/estoques/cadastro' },
+  { value: 'estoques', label: 'Estoques', path: '/estoques-cadastro' },
   { value: 'metas', label: 'Metas', path: '/metas/cadastro' },
   { value: 'vendas', label: 'Vendas', path: '/vendas/cadastro' },
 ];
