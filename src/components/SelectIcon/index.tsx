@@ -11,8 +11,10 @@ interface SelectIconProps {
 
 export const SelectIcon = ({ icon, setIcon, error }: SelectIconProps) => {
   return (
-    <div className='grid gap-2'>
-      <Label htmlFor='icon'>Ícone</Label>
+    <div className='grid'>
+      <Label className='pb-2' htmlFor='icon'>
+        Ícone
+      </Label>
       <Select
         value={icon?.displayName}
         onValueChange={(value) => {
@@ -20,13 +22,17 @@ export const SelectIcon = ({ icon, setIcon, error }: SelectIconProps) => {
           setIcon(selectedIcon);
         }}
       >
-        <SelectTrigger id='icon' className='w-full cursor-pointer'>
+        <SelectTrigger id='icon' className='w-full cursor-pointer transition-colors duration-300'>
           <SelectValue placeholder='Selecione um ícone' />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
             {ICONS_PRODUCT.map((icon) => (
-              <SelectItem key={icon.type} value={icon.displayName} className='duration-300'>
+              <SelectItem
+                key={icon.type}
+                value={icon.displayName}
+                className='cursor-pointer transition-colors duration-300'
+              >
                 <Icon type={icon.icon!} className='inline-block mr-2' />
                 {icon.displayName}
               </SelectItem>

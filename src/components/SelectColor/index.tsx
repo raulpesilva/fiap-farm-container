@@ -10,8 +10,10 @@ interface SelectColorProps {
 
 export const SelectColor = ({ color, setColor, error }: SelectColorProps) => {
   return (
-    <div className='grid gap-2'>
-      <Label htmlFor='color'>Cor</Label>
+    <div className='grid'>
+      <Label className='pb-2' htmlFor='color'>
+        Cor
+      </Label>
       <Select
         value={color?.displayName}
         onValueChange={(value) => {
@@ -19,13 +21,17 @@ export const SelectColor = ({ color, setColor, error }: SelectColorProps) => {
           setColor(selectedColor);
         }}
       >
-        <SelectTrigger id='color' className='w-full cursor-pointer'>
+        <SelectTrigger id='color' className='w-full cursor-pointer transition-colors duration-300'>
           <SelectValue placeholder='Selecione uma cor' />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
             {COLORS_PRODUCT.map((color) => (
-              <SelectItem key={color.type} value={color.displayName} className='duration-300'>
+              <SelectItem
+                key={color.type}
+                value={color.displayName}
+                className='cursor-pointer transition-colors duration-300'
+              >
                 <span className='inline-block mr-2 w-4 h-4 rounded-full' style={{ backgroundColor: color.color }} />
                 {color.displayName}
               </SelectItem>
