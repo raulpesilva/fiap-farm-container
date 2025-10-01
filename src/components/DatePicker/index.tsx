@@ -15,8 +15,8 @@ export const DatePicker = ({ date, setDate, error }: DatePickerProps) => {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <div className='grid gap-2 w-full'>
-      <Label htmlFor='date'>Selecione uma data</Label>
+    <div className='grid w-full'>
+      <Label className='pb-2' htmlFor='date'>Selecione uma data</Label>
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <Button variant='outline' id='date' className='w-full justify-between cursor-pointer duration-300'>
