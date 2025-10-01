@@ -12,8 +12,10 @@ interface SelectProductProps {
 
 export const SelectProduct = ({ products, product, setProduct, error }: SelectProductProps) => {
   return (
-    <div className='grid gap-2'>
-      <Label htmlFor='product'>Produto</Label>
+    <div className='grid'>
+      <Label className='pb-2' htmlFor='product'>
+        Produto
+      </Label>
       <Select
         value={product?.displayName || ''}
         onValueChange={(value) => {
@@ -21,7 +23,7 @@ export const SelectProduct = ({ products, product, setProduct, error }: SelectPr
           setProduct(selectedProduct);
         }}
       >
-        <SelectTrigger id='product' className='w-full cursor-pointer'>
+        <SelectTrigger id='product' className='w-full cursor-pointer transition-colors duration-300'>
           <SelectValue placeholder='Selecione um produto' />
         </SelectTrigger>
         <SelectContent>
