@@ -124,14 +124,17 @@ export function FormAddGoal() {
       <CardContent>
         <form>
           <div className='flex flex-col gap-6'>
-            <div className='grid gap-2'>
-              <Label htmlFor='name'>Digite o nome da meta</Label>
+            <div className='grid group'>
+              <Label className='pb-2' htmlFor='name'>
+                Digite o nome da meta
+              </Label>
               <Input
                 id='name'
                 type='text'
                 placeholder='Digite o nome'
                 onChange={(e) => onChange(setName, e.target.value)}
                 value={name}
+                className='group-hover:bg-input/50! transition-colors duration-300'
               />
               {error.name && <p className='text-sm text-error'>{error.name}</p>}
             </div>
@@ -187,8 +190,10 @@ export function FormAddGoal() {
               </Tabs>
             </div>
 
-            <div className='grid gap-2'>
-              <Label htmlFor='objective'>Digite o objetivo</Label>
+            <div className='grid group'>
+              <Label className='pb-2' htmlFor='objective'>
+                Digite o objetivo
+              </Label>
               <Input
                 id='objective'
                 type='text'
@@ -199,6 +204,7 @@ export function FormAddGoal() {
                   onChange(setTarget, formatted);
                 }}
                 value={target}
+                className='group-hover:bg-input/50! transition-colors duration-300'
               />
               {error.target && <p className='text-sm text-error'>{error.target}</p>}
             </div>
