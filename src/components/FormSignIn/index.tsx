@@ -63,23 +63,29 @@ export function FormSignIn({ className, ...props }: React.ComponentProps<'div'>)
         <CardContent>
           <form>
             <div className='flex flex-col gap-6'>
-              <div className='grid gap-2'>
-                <Label htmlFor='email'>E-mail</Label>
+              <div className='grid group'>
+                <Label className='pb-2' htmlFor='email'>
+                  E-mail
+                </Label>
                 <Input
                   id='email'
                   type='email'
                   placeholder='exemplo@email.com'
                   onChange={(e) => onChange(setEmail, e.target.value)}
                   value={email}
+                  className='group-hover:bg-input/50! transition-colors duration-300'
                 />
               </div>
-              <div className='grid gap-2'>
-                <Label htmlFor='password'>Senha</Label>
+              <div className='grid group'>
+                <Label className='pb-2' htmlFor='password'>
+                  Senha
+                </Label>
                 <Input
                   id='password'
                   type='password'
                   onChange={(e) => onChange(setPassword, e.target.value)}
                   value={password}
+                  className='group-hover:bg-input/50! transition-colors duration-300'
                 />
               </div>
 
