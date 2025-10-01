@@ -116,14 +116,17 @@ export const FormEditProduct = ({ id }: FormEditProductProps) => {
       <CardContent>
         <form>
           <div className='flex flex-col gap-6'>
-            <div className='grid gap-2'>
-              <Label htmlFor='name'>Nome do produto</Label>
+            <div className='grid group'>
+              <Label className='pb-2' htmlFor='name'>
+                Nome do produto
+              </Label>
               <Input
                 id='name'
                 type='text'
                 placeholder='Digite o nome'
                 onChange={(e) => onChange(setName, e.target.value)}
                 value={name}
+                className='group-hover:bg-input/50! transition-colors duration-300'
               />
               {error.name && <p className='text-sm text-error'>{error.name}</p>}
             </div>
@@ -135,7 +138,7 @@ export const FormEditProduct = ({ id }: FormEditProductProps) => {
             {edited && (
               <Button
                 type='submit'
-                className='w-full cursor-pointer duration-300'
+                className='w-full cursor-pointer transition-colors duration-300'
                 onClick={(e) => handleUpdateProduct(e)}
                 disabled={loading}
               >
@@ -154,7 +157,7 @@ export const FormEditProduct = ({ id }: FormEditProductProps) => {
               <Button
                 type='submit'
                 variant='destructive'
-                className='w-full cursor-pointer duration-300'
+                className='w-full cursor-pointer transition-colors duration-300'
                 onClick={(e) => handleDeleteProduct(e)}
                 disabled={loading}
               >
