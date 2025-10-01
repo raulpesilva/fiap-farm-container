@@ -138,14 +138,17 @@ export const FormAddStock = () => {
 
             <SelectProduct products={products} product={product} setProduct={setProduct} error={error.product} />
 
-            <div className='grid gap-2'>
-              <Label htmlFor='quantity'>Digite a quantidade</Label>
+            <div className='grid group'>
+              <Label className='pb-2' htmlFor='quantity'>
+                Digite a quantidade
+              </Label>
               <Input
                 id='quantity'
                 type='number'
                 placeholder='Digite a quantidade'
                 onChange={(e) => onChange(setQuantity, e.target.value)}
                 value={quantity}
+                className='group-hover:bg-input/50! transition-colors duration-300'
               />
               {error.quantity && <p className='text-sm text-error'>{error.quantity}</p>}
             </div>
