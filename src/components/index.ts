@@ -3,6 +3,7 @@ export * from './EmptyState';
 export * from './Footer';
 export * from './FormAddGoal';
 export * from './FormAddProduct';
+export * from './FormAddSale';
 export * from './FormAddStock';
 export * from './FormEditProduct';
 export * from './FormSignIn';
