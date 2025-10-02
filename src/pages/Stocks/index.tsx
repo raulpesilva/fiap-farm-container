@@ -19,7 +19,15 @@ export const Stocks = () => {
     <section className='w-full max-w-[1232px] h-full flex flex-col items-center gap-8 p-4 mx-auto'>
       <h1 className='text-xl md:text-2xl font-medium text-primary-foreground text-center'>Estoques</h1>
 
-      {!transactions?.length && (
+      {!products?.length && (
+        <EmptyState
+          text='Você ainda não cadastrou nenhum produto?'
+          buttonText='Cadastrar produto'
+          navigateTo='/produtos/cadastro'
+        />
+      )}
+
+      {!!products?.length && !transactions?.length && (
         <EmptyState
           text='Vocês ainda não cadastrou nenhum estoque?'
           buttonText='Cadastrar estoque'
