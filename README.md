@@ -1,69 +1,147 @@
-# React + TypeScript + Vite
+# Farm FIAP - Container
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Contexto do projeto
 
-Currently, two official plugins are available:
+O Farm FIAP é uma aplicação desenvolvida no contexto da pós-graduação em Front-end Engineering da FIAP, com o objetivo de aplicar conceitos modernos de arquitetura front-end, componentização, integração de micro front-end e boas práticas de desenvolvimento.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O sistema foi pensado para gestão agrícola e de fazendas, permitindo organizar vendas, estoques, metas e produtos de forma simples e escalável.
 
-## Expanding the ESLint configuration
+&nbsp;
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Composição do projeto
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+O sistema é composto por diferentes aplicações que se integram entre si:
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+[Projeto Back-End](https://github.com/raulpesilva/fiap-back): Responsável pela API e regras de negócio, fornecendo os dados para os aplicativos web e mobile.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+[Aplicativo Mobile](https://github.com/raulpesilva/farm-app): Interface voltada para dispositivos móveis, consumindo os serviços do back-end.
+
+[Aplicativo Web - Container](https://github.com/raulpesilva/fiap-farm-container): Projeto principal que centraliza o micro front-end, gerencia rotas e autenticação e consome os serviços do back-end.
+
+[Aplicativo Web - Micro front-end](https://github.com/raulpesilva/fiap-farm-mfe): Funcionalidade específica dividida em um módulo independente, que é carregado dinamicamente no container.
+
+&nbsp;
+
+## Tecnologias utilizadas
+
+### Front-end
+
+React: Biblioteca JavaScript para construção de interfaces de usuário.
+
+Vite: Ferramenta de build e dev server ultrarrápido, otimizada para projetos modernos.
+
+TailwindCSS: Framework de CSS utilitário para criação de interfaces responsivas e consistentes.
+
+shadcn/ui: Biblioteca de componentes acessíveis e personalizáveis construída sobre Radix UI e Tailwind.
+
+Lucide-react: Conjunto de ícones em SVG otimizados para React.
+
+Recharts: Biblioteca de gráficos para React, facilitando a criação de visualizações de dados interativas.
+
+React Day Picker: Biblioteca para construção de seletores de data flexíveis e acessíveis.
+
+React Router Dom: Biblioteca de roteamento declarativo para navegação em aplicações React.
+
+Re-State: Biblioteca para gerenciamento de estado global de forma simples e reativa.
+
+&nbsp;
+
+### Back-end e segurança
+
+Axios: Cliente HTTP baseado em Promises para consumo de APIs.
+
+Socket.io Client: Cliente WebSocket para comunicação em tempo real com o servidor.
+
+Jose: Biblioteca para manipulação de tokens JWT (JSON Web Tokens), que pode ser utilizada para autenticação e autorização.
+
+&nbsp;
+
+### Documentação e qualidade de código
+
+ESLint: Ferramenta de linting para identificar e corrigir problemas no código.
+
+Prettier: Formatador de código para manter a consistência e padronização.
+
+&nbsp;
+
+### Ferramentas de desenvolvimento
+
+TypeScript: Superconjunto tipado do JavaScript, trazendo mais segurança ao código durante o desenvolvimento.
+
+Module Federation: Técnica para compartilhamento de módulos e integração de micro front-ends.
+
+&nbsp;
+
+## Como Executar o Projeto
+
+### Variáveis de ambiente
+
+Para executar a aplicação, é preciso criar um arquivo `.env` seguindo o `.example.env` localizado na raiz do projeto
+
+&nbsp;
+
+### Para rodar o projeto localmente, siga os passos abaixo
+
+1. Clone o repositório do container:
+
+```shell
+git clone https://github.com/raulpesilva/fiap-farm-container
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Clone o repositório do micro front-end:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```shell
+git clone https://github.com/raulpesilva/fiap-farm-mfe
 ```
+
+3. Acesse o diretório do projeto do container:
+
+```shell
+cd fiap-farm-container
+```
+
+4. Instale as dependências do container:
+
+```shell
+pnpm install
+```
+
+5. Execute a aplicação do container:
+
+```shell
+pnpm dev
+```
+
+6. Acesse o diretório do projeto do micro front-end:
+
+```shell
+cd fiap-farm-mfe
+```
+
+7. Instale as dependências do micro front-end:
+
+```shell
+pnpm install
+```
+
+8. Execute a aplicação do micro front-end:
+
+```shell
+pnpm dev
+```
+
+9. Acesse a aplicação completa no navegador em http://localhost:5173/
+
+10. Acesse a aplicação do micro front-end no navegador em http://localhost:4174/
+
+&nbsp;
+
+#### Nota:
+
+É necessário rodar o micro front-end para acessar a aplicação completa: https://github.com/raulpesilva/fiap-farm-mfe
+
+&nbsp;
+
+## Projeto Publicado
+
+É possível acessar o projeto publicado em: 
