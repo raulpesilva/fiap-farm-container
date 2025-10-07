@@ -144,4 +144,4 @@ pnpm dev
 
 ## Projeto Publicado
 
-É possível acessar o projeto publicado em: 
+É possível acessar o projeto publicado em: https://fiap-farm.raulpesilva.com/
